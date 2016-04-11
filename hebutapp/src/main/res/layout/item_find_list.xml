@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="10.0dip"
+    android:paddingLeft="6.0dip"
+    android:paddingRight="14.0dip"
+    android:paddingTop="10.0dip"
+    android:background="@drawable/item_selector">
+
+    <ImageView
+        android:id="@+id/iv_find_item_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:src="@mipmap/ic_find_jwc_arrow"/>
+
+    <TextView
+        android:id="@+id/tv_find_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/iv_find_item_arrow"
+        android:ellipsize="end"
+        android:maxEms="15"
+        android:singleLine="true"
+        android:text="关于2016年河北工业大学普通话培训、考试的通知"
+        android:textColor="@color/font_darker"
+        android:textSize="13.0dip"
+        />
+
+    <TextView
+        android:id="@+id/tv_find_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text=""
+        android:textColor="@color/font_darker"
+        android:textSize="13.0dip"/>
+
+</RelativeLayout>

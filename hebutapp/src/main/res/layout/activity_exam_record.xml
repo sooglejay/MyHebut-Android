@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_main_exam_top"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:background="#ffffff">
+
+        <ImageView
+            android:id="@+id/iv_exam_top_back"
+            android:layout_width="40.0dip"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:onClick="back"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_header_back"/>
+
+        <TextView
+            android:id="@+id/tv_main_module_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="考试记录"
+            android:textColor="@color/title"
+            android:textSize="16.0sp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15.0dip"
+        android:background="#ffffffff"
+        android:orientation="vertical"
+        android:padding="10.0dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="考试记录"
+            android:textColor="#ff373737"
+            android:textSize="13.0dip"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_exam_empty_record"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffffff"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/color_divider"/>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10.0dip">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/iv_no_record_user_avator"
+                    android:layout_width="45.0dip"
+                    android:layout_height="45.0dip"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/user_avatar_default"
+                    app:riv_oval="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20.0dip"
+                    android:text="呀，你还没有考试呐~~！"
+                    android:textColor="#ff373737"
+                    android:textSize="15.0dip"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_exam_want_again"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn_radius"
+                android:paddingBottom="4.0dip"
+                android:paddingLeft="10.0dip"
+                android:paddingRight="10.0dip"
+                android:paddingTop="4.0dip"
+                android:text="我要考试"
+                android:textColor="#ffffffff"
+                android:textSize="14.0dip"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_exam_best"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffffff"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/color_divider"/>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10.0dip">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/iv_have_record_user_avator"
+                    android:layout_width="45.0dip"
+                    android:layout_height="45.0dip"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/user_avatar_default"
+                    app:riv_oval="true"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginTop="35dp"
+                    android:src="@mipmap/ic_exam_record_best"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_exam_best_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10.0dip"
+                android:text="您的最高历史成绩为 分"
+                android:textColor="#ff373737"
+                android:textSize="15.0dip"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/color_divider"/>
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:id="@+id/lv_exam_record_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffffff"
+        android:cacheColorHint="#00000000"
+        android:divider="#ffdedfe0"
+        android:dividerHeight="1.0px"/>
+</LinearLayout>

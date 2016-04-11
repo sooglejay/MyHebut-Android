@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/main_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/course_item_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:paddingBottom="6dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:id="@+id/tv_home_course_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周一 1-2节"
+                android:textColor="@color/font_gray_darker"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tv_home_course_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:ellipsize="end"
+                android:maxEms="8"
+                android:singleLine="true"
+                android:text="算法分析与设计"
+                android:textColor="@color/font_gray_darker"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tv_home_course_credit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(2学分)"
+                android:textColor="@color/font_gray_darker"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tv_home_course_week"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="1-16周"
+                android:textColor="@color/font_gray_darker"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:paddingBottom="12dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="6dp">
+
+            <TextView
+                android:id="@+id/tv_home_course_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="考查课"
+                android:textColor="@color/font_gray_darker"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tv_home_course_teacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="教师:何平"
+                android:textColor="@color/font_gray_darker"
+                android:textSize="14sp"/>
+
+
+            <TextView
+                android:id="@+id/tv_home_course_room"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="北辰校区教学楼-12-B511"
+                android:textColor="@color/font_gray_darker"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

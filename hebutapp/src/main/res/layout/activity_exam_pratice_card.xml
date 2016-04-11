@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/transparent_bg">
+
+    <LinearLayout
+        android:id="@+id/ll_popup"
+        android:layout_width="fill_parent"
+        android:layout_height="350dip"
+        android:layout_alignParentBottom="true"
+        android:background="@color/exam_popup_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_exam_card_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_exam_card_section"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="6dp"
+                android:src="@mipmap/ic_exam_card_section"/>
+
+            <TextView
+                android:id="@+id/tv_exam_card_section"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/iv_exam_card_section"
+                android:ellipsize="end"
+                android:maxEms="6"
+                android:singleLine="true"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/tv_exam_card_s2ection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Tip:点击上方任意区域返回答题页面"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:layout_below="@id/tv_exam_card_section"/>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_exam_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="#ffe0e0e0"/>
+
+        <GridView
+            android:id="@+id/gv_exam_bottom_card"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="0.0dip"
+            android:layout_marginTop="10.0dip"
+            android:gravity="center"
+            android:horizontalSpacing="0.0dip"
+            android:listSelector="@drawable/grid_selector"
+            android:numColumns="6"
+            android:padding="0.0dip"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbarThumbVertical="@drawable/bg_exam_scroll_num"
+            android:scrollbars="vertical"
+            android:verticalSpacing="9.0dip"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

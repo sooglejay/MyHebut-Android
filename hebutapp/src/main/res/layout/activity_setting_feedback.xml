@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_home_jwc_title"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:background="#ffffff">
+
+        <ImageView
+            android:layout_width="40.0dip"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:onClick="back"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_header_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="使用反馈"
+            android:textColor="@color/title"
+            android:textSize="16.0sp"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/color_divider"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginTop="20.0dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="联系方式"
+            android:textColor="@color/font_darker"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="2.0dip"
+            android:text="(选填)"
+            android:textColor="@color/font_gray_darker"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_setting_feedback_contact"
+        android:layout_width="fill_parent"
+        android:layout_height="43dip"
+        android:layout_marginBottom="20.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:background="#ffffff"
+        android:hint="QQ or 微信 or 手机,我会第一时间联系回复您"
+        android:paddingLeft="13dip"
+        android:paddingRight="13dip"
+        android:singleLine="true"
+        android:textColor="@color/font_darker"
+        android:textColorHint="@color/font_gray_dark"
+        android:textCursorDrawable="@drawable/edit_cursor_bg"
+        android:textSize="14.0sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="12.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:text="您的建议"
+        android:textColor="@color/font_darker"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/et_setting_feedback_content"
+        android:layout_width="fill_parent"
+        android:layout_height="206.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:background="#ffffff"
+        android:gravity="top|left|center"
+        android:hint="在这里,你可以吐槽悦河工,也可以描述你期待的功能"
+        android:lineSpacingExtra="1.0dip"
+        android:maxLength="500"
+        android:padding="13.329987dip"
+        android:textColor="@color/font_darker"
+        android:textColorHint="@color/font_gray_dark"
+        android:textCursorDrawable="@drawable/edit_cursor_bg"
+        android:textSize="14.0sp"/>
+
+
+    <Button
+        android:id="@+id/btn_setting_feedback_submit"
+        android:layout_width="fill_parent"
+        android:layout_height="43dip"
+        android:layout_marginBottom="8.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:layout_marginTop="13dip"
+        android:background="@drawable/btn_radius"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="#ffffff"/>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip">
+
+        <TextView
+            android:id="@+id/tv_setting_feedback_or"
+            android:layout_width="20.0dip"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15.0dip"
+            android:layout_marginRight="15.0dip"
+            android:gravity="center"
+            android:text="or"
+            android:textColor="@color/font_gray_dark"
+            android:textSize="13.329987sp"/>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.33000004dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/tv_setting_feedback_or"
+            android:background="#000000"/>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0.33000004dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_setting_feedback_or"
+            android:background="#000000"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="22.0dip"
+        android:layout_marginRight="22.0dip"
+        android:layout_marginTop="5.0dip"
+        android:text="推荐：加入悦河工交流使用反馈QQ群 461286050"
+        android:textColor="@color/font_darker"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="22.0dip"
+        android:layout_marginRight="22.0dip"
+        android:layout_marginTop="5.0dip"
+        android:text="             随时可以向我反馈交流悦河工的使用~"
+        android:textColor="@color/font_darker"
+        android:textSize="13sp"/>
+
+</LinearLayout>
+
+

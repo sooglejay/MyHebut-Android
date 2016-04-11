@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@color/main_bg"
+              android:clickable="true"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:background="#ffffff">
+
+        <ImageView
+            android:layout_width="40.0dip"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:onClick="back"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_header_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="修改密码"
+            android:textColor="@color/title"
+            android:textSize="16.0sp"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginBottom="12dp"
+        android:background="@color/color_divider"/>
+
+    <EditText
+        android:id="@+id/et_setting_personal_oldpass"
+        android:layout_width="fill_parent"
+        android:layout_height="43dip"
+        android:layout_marginBottom="20.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:background="#ffffff"
+        android:inputType="textPassword"
+        android:maxLength="16"
+        android:hint="请输入您的旧密码"
+        android:paddingLeft="13dip"
+        android:paddingRight="13dip"
+        android:singleLine="true"
+        android:textColor="@color/font_darker"
+        android:textColorHint="@color/font_gray_dark"
+        android:textCursorDrawable="@drawable/edit_cursor_bg"
+        android:textSize="14.0sp"/>
+
+    <EditText
+        android:id="@+id/et_setting_personal_newpass"
+        android:layout_width="fill_parent"
+        android:layout_height="43dip"
+        android:layout_marginBottom="20.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:background="#ffffff"
+        android:inputType="textPassword"
+        android:maxLength="16"
+        android:hint="请输入您的新密码"
+        android:paddingLeft="13dip"
+        android:paddingRight="13dip"
+        android:singleLine="true"
+        android:textColor="@color/font_darker"
+        android:textColorHint="@color/font_gray_dark"
+        android:textCursorDrawable="@drawable/edit_cursor_bg"
+        android:textSize="14.0sp"/>
+
+    <EditText
+        android:id="@+id/et_setting_personal_confirmpass"
+        android:layout_width="fill_parent"
+        android:layout_height="43dip"
+        android:layout_marginBottom="20.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:background="#ffffff"
+        android:inputType="textPassword"
+        android:maxLength="16"
+        android:hint="请再输入一遍新密码进行确认"
+        android:paddingLeft="13dip"
+        android:paddingRight="13dip"
+        android:singleLine="true"
+        android:textColor="@color/font_darker"
+        android:textColorHint="@color/font_gray_dark"
+        android:textCursorDrawable="@drawable/edit_cursor_bg"
+        android:textSize="14.0sp"/>
+
+    <Button
+        android:id="@+id/btn_setting_userpass_submit"
+        android:layout_width="fill_parent"
+        android:layout_height="43dip"
+        android:layout_marginBottom="8.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:background="@drawable/btn_radius"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="#ffffff"/>
+
+</LinearLayout>

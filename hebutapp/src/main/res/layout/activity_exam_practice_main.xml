@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:gravity="bottom"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_exam_main"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_exam_top"
+            android:layout_width="fill_parent"
+            android:layout_height="48.0dip">
+
+            <ImageView
+                android:id="@+id/iv_exam_top_back"
+                android:layout_width="40.0dip"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:onClick="back"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_header_back"/>
+
+            <RadioGroup
+                android:id="@+id/rg_exam_top_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="25.0dip"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="9.0dip"
+                android:layout_marginTop="9.0dip"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_exam_top_left"
+                    android:layout_width="75.0dip"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/exam_mode_left_btn"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="答题模式"
+                    android:textColor="@color/exam_mode_btn_color"
+                    android:textSize="14.0sp"/>
+
+                <RadioButton
+                    android:id="@+id/rb_exam_top_right"
+                    android:layout_width="75.0dip"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/exam_mode_right_btn"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="学习模式"
+                    android:textColor="@color/exam_mode_btn_color"
+                    android:textSize="14.0sp"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv_exam_top_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="倒计时 30:00"
+                android:textColor="@color/title"
+                android:textSize="16.0sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_exam_top_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="考试错题"
+                android:textColor="@color/title"
+                android:textSize="16.0sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_exam_top_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@mipmap/ic_exam_submit"
+                android:drawablePadding="6.0dip"
+                android:gravity="center_vertical"
+                android:paddingLeft="8.0dip"
+                android:paddingRight="8.0dip"
+                android:clickable="false"
+                android:text="交卷"
+                android:textColor="#ff434343"
+                android:textSize="14.0sp"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_below="@id/rl_exam_top"
+            android:background="#ffe0e0e0"/>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/view_line">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_exam_page"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"/>
+
+            <View
+                android:id="@+id/view_exam_page_shadow"
+                android:layout_width="25.0dip"
+                android:layout_height="fill_parent"
+                android:layout_gravity="right"
+                android:layout_marginRight="-25.0dip"
+                android:background="@mipmap/page_sliding_shadow"/>
+        </FrameLayout>
+    </RelativeLayout>
+
+    <include layout="@layout/activity_exam_practice_bottom"/>
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="#ffffff"
+    >
+
+    <TextView
+        android:id="@+id/tv_home_music_item"
+        android:layout_width="fill_parent"
+        android:layout_height="42.0dip"
+        android:background="#ffffffff"
+        android:drawableLeft="@mipmap/ic_music"
+        android:gravity="center_vertical"
+        android:paddingLeft="15.0dip"
+        android:text="  "
+        android:textColor="#ff434343"
+        android:textSize="14.0sp"/>
+
+
+</LinearLayout>

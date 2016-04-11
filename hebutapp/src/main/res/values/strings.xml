@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">悦河工</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="home">&#xe676;</string>
+    <string name="find">&#xe634;</string>
+    <string name="exam">&#xe650;</string>
+    <string name="setting">&#xe622;</string>
+
+    <string name="reply">&#xe60f;</string>
+
+    <string name="grade">&#xe606;</string>
+    <string name="course">&#xe605;</string>
+    <string name="room">&#xe604;</string>
+    <string name="daka">&#xe601;</string>
+    <string name="bus">&#xe602;</string>
+    <string name="map">&#xe603;</string>
+    <string name="logout">&#xe607;</string>
+    <string name="music">&#xe600;</string>
+    <string name="card">&#xe602;</string>
+    <string name="more">&#xe600;</string>
+
+    <string name="advice">&#xe603;</string>
+    <string name="share">&#xe604;</string>
+    <string name="xiala">&#xe601;</string>
+    <string name="pen">&#xe602;</string>
+
+    <string name="refresh">&#xe600;</string>
+
+    <string name="kuaidi">&#xe603;</string>
+    <string name="cet">&#xe600;</string>
+    <string name="guide">&#xe602;</string>
+
+
+</resources>

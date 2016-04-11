@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent">#00000000</color>
+    <color name="main_bg">#F5F5F9</color>
+    <color name="checked_bg">#EAEAEA</color>
+    <color name="exam_text">#333333</color>
+    <color name="main_color_s">#0799FC</color>
+    <color name="main_color_n">#7597B3</color>
+    <color name="exam_text_darker">#797979</color>
+    <color name="exam_true_count">#24B8EE</color>
+    <color name="exam_false_count">#F25E5E</color>
+    <color name="exam_btn_bg">#24B8EE</color>
+    <color name="exam_popup_bg">#f2f2f2</color>
+    <color name="exam_tpi_text">#3B95E8</color>
+    <color name="exam_tpi_text_darker">#87A3BB</color>
+    <color name="title">#ff4d4d4d</color>
+    <!-- exam_result from chelunkaojiazhao -->
+    <color name="color_divider">#ffe6e6e6</color>
+    <color name="font_gray_dark">#ff8c8c8c</color>
+    <color name="font_gray_darker">#ff727272</color>
+    <color name="font_dark">#ff4d4d4d</color>
+    <color name="font_dark_2">#ff3f3f3f</color>
+    <color name="font_darker">#ff1c1c1c</color>
+    <color name="font_red">#ffff5252</color>
+
+    <color name="find_tab_n">#828282</color>
+    <color name="find_tab_s">#4E5257</color>
+
+
+    <color name="function_blue">#2EB3E8</color>
+    <color name="function_green">#35BC99</color>
+    <color name="function_orange">#FFB359</color>
+    <color name="function_red">#F96267</color>
+
+    <color name="edit_hint_color">#ff666666</color>
+    <color name="find_password_top_bg">#fff6f6f7</color>
+    <color name="find_password_txt">#ff333333</color>
+    <color name="forget_text_color">#ffcccccc</color>
+
+</resources>

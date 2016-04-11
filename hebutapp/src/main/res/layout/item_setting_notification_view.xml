@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+    >
+
+    <TextView
+        android:id="@+id/tv_setting_notification_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="6dp"
+        android:paddingLeft="15.0dip"
+        android:text="这里是标题"
+        android:textColor="@color/font_darker"
+        android:textSize="17.0sp"/>
+
+    <TextView
+        android:id="@+id/tv_setting_notification_outline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_setting_notification_title"
+        android:layout_marginBottom="6dp"
+        android:paddingLeft="15.0dip"
+        android:text="这里是标题"
+        android:textColor="@color/font_gray_darker"
+        android:textSize="15.0sp"/>
+
+    <TextView
+        android:id="@+id/tv_setting_notification_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="8dp"
+        android:paddingRight="20.0dip"
+        android:text="这里是时间"
+        android:textColor="@color/font_gray_darker"
+        android:textSize="14.0sp"/>
+
+    <ImageView
+        android:id="@+id/iv_setting_notification_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_setting_notification_time"
+        android:layout_marginBottom="6dp"
+        android:paddingRight="20.0dip"
+        android:src="@mipmap/ic_notification_red_point"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>

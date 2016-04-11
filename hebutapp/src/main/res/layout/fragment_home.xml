@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    >
+
+
+    <ScrollView
+        android:id="@+id/sv_main"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp">
+
+        <LinearLayout
+            android:id="@+id/ll_main"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="84.0dip"
+                android:background="#ffffffff">
+
+
+                <LinearLayout
+                    android:id="@+id/ll_score"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/grade"
+                        android:textColor="@color/function_red"
+                        android:textSize="@dimen/main_function_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="查成绩"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/color_divider"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_course"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_course"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/course"
+                        android:textColor="@color/function_orange"
+                        android:textSize="@dimen/main_function_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="查课表"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/color_divider"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_room"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_room"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/room"
+                        android:textColor="@color/function_green"
+                        android:textSize="@dimen/main_function_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="查教室"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/color_divider"/>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_cet"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_cet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/cet"
+                        android:textColor="@color/function_red"
+                        android:textSize="34sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="查四六级"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:background="@color/color_divider"/>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="85.0dip"
+                android:background="#ffffffff">
+
+
+                <LinearLayout
+                    android:id="@+id/ll_daka"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_daka"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/daka"
+                        android:textColor="@color/function_orange"
+                        android:textSize="@dimen/main_function_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="查打卡"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/color_divider"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_bus"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_bus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/bus"
+                        android:textColor="@color/function_green"
+                        android:textSize="@dimen/main_function_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="查公交"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/color_divider"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_map"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_map"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/map"
+                        android:textColor="@color/function_orange"
+                        android:textSize="@dimen/main_function_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="查地图"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/color_divider"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_kuaidi"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_kuaidi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/kuaidi"
+                        android:textColor="@color/function_blue"
+                        android:textSize="@dimen/main_function_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="查快递"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:background="@color/color_divider"/>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="84.0dip"
+                android:background="#ffffffff">
+
+                <LinearLayout
+                    android:id="@+id/ll_music"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_music"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/music"
+                        android:textColor="@color/function_red"
+                        android:textSize="@dimen/main_function_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="广播站点歌"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/color_divider"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_card"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/card"
+                        android:textColor="@color/function_blue"
+                        android:textSize="@dimen/main_function_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="一卡通"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/color_divider"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_logout"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_logout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/logout"
+                        android:textColor="@color/function_blue"
+                        android:textSize="26sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="校园网注销"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/color_divider"/>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/color_divider"/>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_guide"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_guide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/guide"
+                        android:textColor="@color/function_green"
+                        android:textSize="@dimen/main_function_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="学生服务中心"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:background="@color/color_divider"/>
+
+            <com.bigkoo.convenientbanner.ConvenientBanner
+            android:id="@+id/convenientBanner"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            app:canLoop="true"
+            />
+
+            <!--<ImageView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="120dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:src="@mipmap/pic_banner_4"/>-->
+
+            <RelativeLayout
+                android:id="@+id/rl_home_more"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="13dp"
+                >
+
+                <TextView
+                    android:id="@+id/tv_home_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="觉得悦河工不错吗?快点推荐悦河工给TA吧~"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/tv_home_xiala"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_toRightOf="@id/tv_home_text"
+                    android:gravity="center"
+                    android:text="@string/xiala"
+                    android:textSize="10sp"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="加入悦河工使用交流QQ群 461286050"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="在这里,你可以尽情吐槽悦河工,也可以说出你想要的功能"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rl_main_top"
+        android:layout_width="fill_parent"
+        android:layout_height="140.0dip"
+        android:background="#0799FC">
+
+        <TextView
+            android:id="@+id/tv_home_feedback_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="9dp"
+            android:onClick="feedback"
+            android:text="@string/advice"
+            android:textColor="#ffffff"
+            android:textSize="20.0sp"/>
+
+        <TextView
+            android:id="@+id/tv_home_feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="11dp"
+            android:layout_toRightOf="@id/tv_home_feedback_icon"
+            android:onClick="feedback"
+            android:text="反馈"
+            android:textColor="#ffffff"
+            android:textSize="14.0sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="悦河工"
+            android:textColor="#ffffff"
+            android:textSize="20.0sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_home_motto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.3"
+            android:text="我进去吧。你们去了也找不到。我做的，我知道。——邓稼先"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="italic"/>
+
+
+
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="-45dp"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_exam_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="45.0dip"
+        android:layout_alignParentTop="true">
+
+        <CheckBox
+            android:id="@+id/cbx_exam_bottom_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="12.0dip"
+            android:button="@null"
+            android:drawableLeft="@drawable/exam_collect_btn"
+            android:drawablePadding="5.0dip"
+            android:gravity="center"
+            android:padding="0.0px"
+            android:text="收藏"
+            android:textColor="@color/exam_text_darker"
+            android:textSize="13.0sp"
+            />
+
+
+        <Button
+            android:id="@+id/btn_exam_bottom_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="12.0dip"
+            android:background="@color/transparent"
+            android:drawableLeft="@mipmap/ic_exam_delete"
+            android:drawablePadding="-28.0dip"
+            android:gravity="center"
+            android:padding="0.0px"
+            android:text="移除"
+            android:textColor="@color/exam_text_darker"
+            android:textSize="13.0sp"
+            android:visibility="gone"
+            />
+
+
+        <RelativeLayout
+            android:id="@+id/rl_exam_card"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="100dp"
+            >
+
+            <ImageView
+                android:id="@+id/iv_exam_bottom_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="70.0dip"
+                android:src="@mipmap/ic_exam_count"/>
+
+            <TextView
+                android:id="@+id/tv_exam_bottom_count"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12.0dip"
+                android:gravity="center_vertical"
+                android:textColor="@color/exam_text"
+                android:textSize="13.0sp"/>
+
+            <ImageView
+                android:id="@+id/iv_exam_bottom_false_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="48.0dip"
+                android:layout_toLeftOf="@id/iv_exam_bottom_count"
+                android:src="@mipmap/ic_exam_false"/>
+
+            <TextView
+                android:id="@+id/tv_exam_bottom_false_count"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="-42.0dip"
+                android:layout_toRightOf="@id/iv_exam_bottom_false_count"
+                android:gravity="center_vertical"
+                android:text="0"
+                android:textColor="@color/exam_false_count"
+                android:textSize="13.0sp"/>
+
+            <ImageView
+                android:id="@+id/iv_exam_bottom_true_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="48.0dip"
+                android:layout_toLeftOf="@id/iv_exam_bottom_false_count"
+                android:src="@mipmap/ic_exam_true"/>
+
+            <TextView
+                android:id="@+id/tv_exam_bottom_true_count"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="-42.0dip"
+                android:layout_toRightOf="@id/iv_exam_bottom_true_count"
+                android:gravity="center_vertical"
+                android:text="0"
+                android:textColor="@color/exam_true_count"
+                android:textSize="13.0sp"/>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

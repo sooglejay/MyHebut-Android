@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_main_exam_top"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:background="#ffffff">
+
+        <ImageView
+            android:id="@+id/iv_exam_top_back"
+            android:layout_width="40.0dip"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:onClick="back"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_header_back"/>
+
+        <TextView
+            android:id="@+id/tv_main_module_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="考试结果"
+            android:textColor="@color/title"
+            android:textSize="16.0sp"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white">
+
+                    <ImageView
+                        android:id="@+id/iv_exam_result_banner"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitStart"
+                        android:src="@mipmap/img_exam_banner"/>
+
+                    <TextView
+                        android:id="@+id/tv_exam_result_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_below="@id/iv_exam_result_banner"
+                        android:layout_marginTop="-30dp"
+                        android:layout_toLeftOf="@+id/exam_result_summary"
+                        android:layout_toRightOf="@+id/iv_exam_result_avatar"
+                        android:padding="@dimen/default_padding"
+                        android:text="nickName"
+                        android:textColor="@color/font_darker"
+                        android:textSize="@dimen/font_size_medium"/>
+
+                    <TextView
+                        android:id="@+id/tv_exam_result_subject"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/tv_exam_result_name"
+                        android:layout_alignParentRight="true"
+                        android:paddingRight="@dimen/default_padding"
+                        android:text="科目"
+                        android:textColor="@color/font_dark"
+                        android:textSize="@dimen/font_size_normal"/>
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/iv_exam_result_avatar"
+                        android:layout_width="@dimen/avatar_size_large"
+                        android:layout_height="@dimen/avatar_size_large"
+                        android:layout_alignBottom="@id/tv_exam_result_name"
+                        android:layout_below="@id/iv_exam_result_banner"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10.0dip"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginTop="-70.0dip"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/user_avatar_default"
+                        app:riv_border_color="#ffffffff"
+                        app:riv_border_width="2.0dip"
+                        app:riv_oval="true"/>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dip"
+                    android:background="@android:color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_padding"
+                        android:orientation="horizontal"
+                        android:paddingTop="10.0dip">
+
+                        <LinearLayout
+                            android:layout_width="0.0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3.0"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="得分"
+                                android:textColor="@color/font_gray_dark"
+                                android:textSize="@dimen/font_size_normal"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10.0dip"
+                                android:gravity="bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_exam_result_score"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="\ 98"
+                                    android:textColor="@color/font_red"
+                                    android:textSize="36.0sp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="2.0dip"
+                                    android:text="分"
+                                    android:textColor="@color/font_darker"
+                                    android:textSize="@dimen/font_size_normal"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.0px"
+                            android:layout_height="fill_parent"
+                            android:background="@color/color_divider"/>
+
+                        <LinearLayout
+                            android:layout_width="0.0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3.0"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="时间"
+                                android:textColor="@color/font_gray_dark"
+                                android:textSize="@dimen/font_size_normal"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10.0dip"
+                                android:gravity="bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_exam_result_time_min"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="\ 4"
+                                    android:textColor="@color/font_dark"
+                                    android:textSize="36.0sp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="2.0dip"
+                                    android:text="分"
+                                    android:textColor="@color/font_darker"
+                                    android:textSize="@dimen/font_size_normal"/>
+
+                                <TextView
+                                    android:id="@+id/tv_exam_result_time_sec"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="\ 40"
+                                    android:textColor="@color/font_dark"
+                                    android:textSize="36.0sp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="2.0dip"
+                                    android:text="秒"
+                                    android:textColor="@color/font_darker"
+                                    android:textSize="@dimen/font_size_normal"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1.0px"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginRight="@dimen/default_padding"
+                        android:background="@color/color_divider"/>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/exam_result_share"
+                            android:layout_width="0.0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3.0"
+                            android:clickable="true"
+                            android:drawablePadding="5.0dip"
+                            android:drawableTop="@mipmap/ic_exam_result_share"
+                            android:gravity="center"
+                            android:onClick="onShareClick"
+                            android:paddingBottom="15.0dip"
+                            android:paddingTop="15.0dip"
+                            android:text="分享"
+                            android:textColor="@color/font_dark"
+                            android:textSize="@dimen/font_size_small"/>
+
+                        <TextView
+                            android:id="@+id/tv_exam_result_note"
+                            android:layout_width="0.0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3.0"
+                            android:clickable="true"
+                            android:drawablePadding="5.0dip"
+                            android:drawableTop="@mipmap/ic_exam_result_note"
+                            android:gravity="center"
+                            android:onClick="onWrongClick"
+                            android:paddingBottom="15.0dip"
+                            android:paddingTop="15.0dip"
+                            android:text="查看错题"
+                            android:textColor="@color/font_dark"
+                            android:textSize="@dimen/font_size_small"/>
+
+                        <TextView
+                            android:id="@+id/tv_exam_result_again"
+                            android:layout_width="0.0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3.0"
+                            android:clickable="true"
+                            android:drawablePadding="5.0dip"
+                            android:drawableTop="@mipmap/ic_exam_result_again"
+                            android:gravity="center"
+                            android:onClick="onAgainClick"
+                            android:paddingBottom="15.0dip"
+                            android:paddingTop="15.0dip"
+                            android:text="重新考试"
+                            android:textColor="@color/font_dark"
+                            android:textSize="@dimen/font_size_small"/>
+
+                        <TextView
+                            android:id="@+id/tv_exam_result_rank"
+                            android:layout_width="0.0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3.0"
+                            android:clickable="true"
+                            android:drawablePadding="5.0dip"
+                            android:drawableTop="@mipmap/ic_exam_result_rank"
+                            android:gravity="center"
+                            android:onClick="onRankClick"
+                            android:paddingBottom="15.0dip"
+                            android:paddingTop="15.0dip"
+                            android:text="排行榜"
+                            android:textColor="@color/font_dark"
+                            android:textSize="@dimen/font_size_small"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbarThumbVertical="@drawable/bg_exam_scroll_num">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/main_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="-3dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_exam_subject_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Hebut · 科目"
+                android:textColor="@color/main_color_s"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_exam_subject_title_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_toLeftOf="@id/tv_exam_subject_title"
+                android:text="@string/pen"
+                android:textColor="@color/main_color_s"
+                android:textSize="11sp"/>
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="110.0dip"
+            android:background="#ffffffff"
+            >
+
+            <RelativeLayout
+                android:id="@+id/rl_exam"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/function_module_bg"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/exam_module_top_margin"
+                    android:drawablePadding="@dimen/fragment_exam_drawable_padding"
+                    android:drawableTop="@mipmap/ic_exam_exam"
+                    android:text="考试练习"
+                    android:textColor="@color/exam_text"
+                    android:textSize="13.0sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_order"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/function_module_bg"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/exam_module_top_margin"
+                    android:drawablePadding="@dimen/fragment_exam_drawable_padding"
+                    android:drawableTop="@mipmap/ic_exam_order"
+                    android:text="顺序练习"
+                    android:textColor="@color/exam_text"
+                    android:textSize="13.0sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_random"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/function_module_bg"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/exam_module_top_margin"
+                    android:drawablePadding="@dimen/fragment_exam_drawable_padding"
+                    android:drawableTop="@mipmap/ic_exam_random"
+                    android:text="随机练习"
+                    android:textColor="@color/exam_text"
+                    android:textSize="13.0sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_search"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/function_module_bg"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/exam_module_top_margin"
+                    android:drawablePadding="@dimen/fragment_exam_drawable_padding"
+                    android:drawableTop="@mipmap/ic_exam_search"
+                    android:text="试题搜索"
+                    android:textColor="@color/exam_text"
+                    android:textSize="13.0sp"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="110.0dip"
+            android:layout_marginTop="8dp"
+            android:background="#ffffffff">
+
+            <RelativeLayout
+                android:id="@+id/rl_note"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/function_module_bg"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/exam_module_bottom_margin"
+                    android:drawablePadding="@dimen/fragment_exam_drawable_padding"
+                    android:drawableTop="@mipmap/ic_exam_note"
+                    android:text="错题集"
+                    android:textColor="@color/exam_text"
+                    android:textSize="13.0sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_collect"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/function_module_bg"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/exam_module_bottom_margin"
+                    android:drawablePadding="@dimen/fragment_exam_drawable_padding"
+                    android:drawableTop="@mipmap/ic_exam_collect"
+                    android:text="收藏夹"
+                    android:textColor="@color/exam_text"
+                    android:textSize="13.0sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_rank"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/function_module_bg"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/exam_module_bottom_margin"
+                    android:drawablePadding="@dimen/fragment_exam_drawable_padding"
+                    android:drawableTop="@mipmap/ic_exam_rank"
+                    android:text="排行榜"
+                    android:textColor="@color/exam_text"
+                    android:textSize="13.0sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_record"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/function_module_bg"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/exam_module_bottom_margin"
+                    android:drawablePadding="@dimen/fragment_exam_drawable_padding"
+                    android:drawableTop="@mipmap/ic_exam_record"
+                    android:text="考试记录"
+                    android:textColor="@color/exam_text"
+                    android:textSize="13.0sp"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

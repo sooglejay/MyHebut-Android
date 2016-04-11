@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@color/main_bg"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:background="#ffffff">
+
+        <ImageView
+            android:layout_width="40.0dip"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:onClick="back"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_header_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="修改头像"
+            android:textColor="@color/title"
+            android:textSize="16.0sp"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginBottom="12dp"
+        android:background="@color/color_divider"/>
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/iv_setting_personal_avatar"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitXY"
+        app:riv_border_color="#ffffffff"
+        app:riv_border_width="2.0dip"
+        app:riv_oval="true"/>
+
+    <Button
+        android:id="@+id/btn_setting_personal_avatar"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_radius"
+        android:text="修改头像"
+        android:textColor="#ffffff"/>
+
+    <LinearLayout
+        android:id="@+id/ll_setting_avatar_waiting"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+        <ProgressBar
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="上传中"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

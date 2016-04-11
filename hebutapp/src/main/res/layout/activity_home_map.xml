@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@color/main_bg"
+              android:clickable="true"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:background="#ffffff">
+
+        <ImageView
+            android:layout_width="40.0dip"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:onClick="back"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_header_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="校园全景地图"
+            android:textColor="@color/title"
+            android:textSize="16.0sp"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginBottom="12dp"
+        android:background="@color/color_divider"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/color_divider"/>
+
+    <TextView
+        android:id="@+id/tv_home_map_beichen"
+        android:layout_width="fill_parent"
+        android:layout_height="42.0dip"
+        android:background="#ffffffff"
+        android:drawableLeft="@drawable/point_blue"
+        android:drawablePadding="10.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="10.0dip"
+        android:text="  北辰校区"
+        android:textColor="#ff434343"
+        android:textSize="14.0sp"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginBottom="8dp"
+        android:background="@color/color_divider"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/color_divider"/>
+
+    <TextView
+        android:id="@+id/tv_home_map_dongyuan"
+        android:layout_width="fill_parent"
+        android:layout_height="42.0dip"
+        android:background="#ffffffff"
+        android:drawableLeft="@drawable/point_green"
+        android:drawablePadding="10.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="10.0dip"
+        android:text="  红桥校区(东院)"
+        android:textColor="#ff434343"
+        android:textSize="14.0sp"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginBottom="8dp"
+        android:background="@color/color_divider"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/color_divider"/>
+
+    <TextView
+        android:id="@+id/tv_home_map_nanyuan"
+        android:layout_width="fill_parent"
+        android:layout_height="42.0dip"
+        android:background="#ffffffff"
+        android:drawableLeft="@drawable/point_purple"
+        android:drawablePadding="10.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="10.0dip"
+        android:text="  红桥校区(南院)"
+        android:textColor="#ff434343"
+        android:textSize="14.0sp"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginBottom="8dp"
+        android:background="@color/color_divider"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/color_divider"/>
+
+
+    <TextView
+        android:id="@+id/tv_home_map_beiyuan"
+        android:layout_width="fill_parent"
+        android:layout_height="42.0dip"
+        android:background="#ffffffff"
+        android:drawableLeft="@drawable/point_orange"
+        android:drawablePadding="10.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="10.0dip"
+        android:text="  红桥校区(北院)"
+        android:textColor="#ff434343"
+        android:textSize="14.0sp"/>
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginBottom="8dp"
+        android:background="@color/color_divider"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/color_divider"/>
+
+
+    <TextView
+        android:id="@+id/tv_home_map_langfang"
+        android:layout_width="fill_parent"
+        android:layout_height="42.0dip"
+        android:background="#ffffffff"
+        android:drawableLeft="@drawable/point_red"
+        android:drawablePadding="10.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="10.0dip"
+        android:text="  廊坊校区"
+        android:textColor="#ff434343"
+        android:textSize="14.0sp"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/color_divider"/>
+</LinearLayout>

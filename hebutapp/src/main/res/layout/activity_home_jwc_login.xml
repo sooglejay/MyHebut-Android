@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_home_jwc_title"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_marginBottom="12dp"
+        android:background="#ffffff">
+
+        <ImageView
+            android:layout_width="40.0dip"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:onClick="back"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_header_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="课表查询"
+            android:textColor="@color/title"
+            android:textSize="16.0sp"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/rl_home_jwc_title"
+        android:background="@color/color_divider"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_home_jwc_title"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="48.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="12.0dip">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="4.0dip"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/account_edit_bg_selector"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="13.0dip"
+                android:maxLength="11"
+                android:text="学号"
+                android:textColor="#ff373737"
+                android:textSize="15.0sp"/>
+
+
+            <EditText
+                android:id="@+id/et_home_jwc_stuId"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="102.0dip"
+                android:background="@null"
+                android:hint="请输入您的学号"
+                android:inputType="numberDecimal"
+                android:maxLength="11"
+                android:textColor="#ff373737"
+                android:textSize="15.0sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="48.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="4.0dip"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/account_edit_bg_selector"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="13.0dip"
+                android:text="密码"
+                android:textColor="#ff373737"
+                android:textSize="15.0sp"/>
+
+
+            <EditText
+                android:id="@+id/et_home_jwc_stuPass"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="102.0dip"
+                android:background="@null"
+                android:hint="请输入您的密码"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:textColor="#ff000000"
+                android:textSize="15.0sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="48.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="4.0dip"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/account_edit_bg_selector"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="13.0dip"
+                android:text="验证码"
+                android:textColor="#ff373737"
+                android:textSize="15.0sp"/>
+
+
+            <EditText
+                android:id="@+id/et_home_jwc_authCode"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="102.0dip"
+                android:background="@null"
+                android:hint="请输入验证码"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:textColor="#ff000000"
+                android:textSize="15.0sp"/>
+
+            <ImageView
+                android:id="@+id/iv_home_jwc_authCode"
+                android:layout_width="80dp"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitCenter"
+                />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_home_jwc_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="48.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="24.0dip"
+            android:background="@drawable/btn_radius"
+            android:text="确定"
+            android:textColor="#ffffffff"
+            android:textSize="17.0sp"/>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

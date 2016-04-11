@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_marginTop="6dp">
+
+        <EditText
+            android:id="@+id/tv_find_wb_search"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:background="@drawable/white_radius"
+            android:hint="输入关键词,搜索近5天的失物招领相关信息"
+            android:paddingLeft="13dip"
+            android:paddingRight="13dip"
+            android:singleLine="true"
+            android:textColor="@color/font_darker"
+            android:textColorHint="@color/font_gray_dark"
+            android:textCursorDrawable="@drawable/edit_cursor_bg"
+            android:textSize="13.0sp"/>
+
+        <ImageButton
+            android:id="@+id/ibtn_find_wb_search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:background="@mipmap/ic_search"/>
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/color_divider"/>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/listView"
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/color_divider"
+        android:dividerHeight="1px"
+        ptr:ptrDrawable="@mipmap/refresh"
+        ptr:ptrHeaderTextAppearance="@style/pull2refresh">
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+</LinearLayout>
