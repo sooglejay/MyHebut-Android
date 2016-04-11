@@ -3,6 +3,7 @@ package com.myhebut.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
@@ -99,7 +100,7 @@ public class SplashActivity extends Activity {
         RequestParams params = new RequestParams();
         params.addBodyParameter("userName", userName);
         params.addBodyParameter("userPass", userPass);
-        http.send(HttpRequest.HttpMethod.POST, "http://121.42.169.129/login", params, new RequestCallBack<String>() {
+        http.send(HttpRequest.HttpMethod.POST, UrlUtil.getLoginUrl(), params, new RequestCallBack<String>() {
 
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
@@ -115,6 +116,7 @@ public class SplashActivity extends Activity {
                         application.setUser(user);
                         // 获取并保存banner
                         getBanners();
+
                         // 跳转在banner异步获取成功时跳转
                     } else {
                         Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
@@ -159,6 +161,7 @@ public class SplashActivity extends Activity {
                 // 解析数据
                 JsonBanner jsonBanner = gson.fromJson(jsonData, JsonBanner.class);
                 application.setBanners(jsonBanner.getBanners());
+
                 // 保存数据,用于离线访问
                 SpUtil.setString(getApplicationContext(), MyConstants.BANNERDATA,
                         jsonData);

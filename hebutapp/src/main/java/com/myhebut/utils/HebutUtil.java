@@ -33,8 +33,17 @@ public class HebutUtil {
             sectionMap.put("4", "社会主义建设道路初步探索的理论成果");
             sectionMap.put("5", "建设中国特色社会主义总依据");
             sectionMap.put("6", "社会主义本质和总任务");
-        } else {
-            System.out.println("not exist");
+        } else{
+            sectionMap.put("0", "社会主义改革开放理论");
+            sectionMap.put("1", "建设中国特色社会主义总布局-经济");
+            sectionMap.put("2", "建设中国特色社会主义总布局-政治");
+            sectionMap.put("3", "建设中国特色社会主义总布局-文化");
+            sectionMap.put("4", "建设中国特色社会主义总布局-和谐社会");
+            sectionMap.put("5", "建设中国特色社会主义总布局-生态文明");
+            sectionMap.put("6", "实现祖国完全统一的理论");
+            sectionMap.put("7", "中国特色社会主义外交和国际战略");
+            sectionMap.put("8", "建设中国特色社会主义的根本目的和依靠力量理论");
+            sectionMap.put("9", "中国特色社会主义领导核心理论");
         }
         return sectionMap;
     }

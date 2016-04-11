@@ -212,5 +212,42 @@
         android:layout_height="1.0px"
         android:background="@color/color_divider"/>
 
+    <TextView
+        android:id="@+id/tv_exam_section_8"
+        android:layout_width="fill_parent"
+        android:layout_height="42.0dip"
+        android:background="#ffffffff"
+        android:drawableLeft="@drawable/point_blue"
+        android:drawablePadding="10.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="10.0dip"
+        android:text=""
+        android:textColor="#ff434343"
+        android:textSize="14.0sp"
+        android:visibility="gone"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/color_divider"/>
+
+    <TextView
+        android:id="@+id/tv_exam_section_9"
+        android:layout_width="fill_parent"
+        android:layout_height="42.0dip"
+        android:background="#ffffffff"
+        android:drawableLeft="@drawable/point_purple"
+        android:drawablePadding="10.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="10.0dip"
+        android:text=""
+        android:textColor="#ff434343"
+        android:textSize="14.0sp"
+        android:visibility="gone"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/color_divider"/>
 
 </LinearLayout>

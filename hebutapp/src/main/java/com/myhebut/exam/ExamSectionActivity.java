@@ -38,6 +38,10 @@ public class ExamSectionActivity extends FragmentActivity {
     private TextView mTvSection_6;
     @ViewInject(R.id.tv_exam_section_7)
     private TextView mTvSection_7;
+    @ViewInject(R.id.tv_exam_section_8)
+    private TextView mTvSection_8;
+    @ViewInject(R.id.tv_exam_section_9)
+    private TextView mTvSection_9;
 
     private String module;
 
@@ -56,7 +60,7 @@ public class ExamSectionActivity extends FragmentActivity {
     }
 
     @OnClick(R.id.tv_exam_section_0)
-    public void get8th(View view) {
+    public void get0th(View view) {
         url = UrlUtil.getUrlWithSection(module, subject, 0);
         intent.putExtra("url", url);
         intent.putExtra("module", module);
@@ -127,6 +131,24 @@ public class ExamSectionActivity extends FragmentActivity {
         startActivity(intent);
     }
 
+    @OnClick(R.id.tv_exam_section_8)
+    public void get8th(View view) {
+        url = UrlUtil.getUrlWithSection(module, subject, 8);
+        intent.putExtra("url", url);
+        intent.putExtra("module", module);
+        intent.putExtra("section", mTvSection_8.getText());
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.tv_exam_section_9)
+    public void get9th(View view) {
+        url = UrlUtil.getUrlWithSection(module, subject, 9);
+        intent.putExtra("url", url);
+        intent.putExtra("module", module);
+        intent.putExtra("section", mTvSection_9.getText());
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,6 +175,11 @@ public class ExamSectionActivity extends FragmentActivity {
         if (subject.equals("1")) {
             mTvSection_0.setVisibility(View.GONE);
             mTvSection_7.setVisibility(View.GONE);
+        }
+        // 毛概下分为10个章节
+        if (subject.equals("2")) {
+            mTvSection_8.setVisibility(View.VISIBLE);
+            mTvSection_9.setVisibility(View.VISIBLE);
         }
 
         Map<String, String> sectionMap = HebutUtil.initSections(subject);
@@ -182,6 +209,12 @@ public class ExamSectionActivity extends FragmentActivity {
                     break;
                 case 7:
                     mTvSection_7.setText(sectionMap.get(i + ""));
+                    break;
+                case 8:
+                    mTvSection_8.setText(sectionMap.get(i + ""));
+                    break;
+                case 9:
+                    mTvSection_9.setText(sectionMap.get(i + ""));
                     break;
                 default:
                     break;
