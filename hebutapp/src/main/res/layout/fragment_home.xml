@@ -56,7 +56,7 @@
                 <View
                     android:layout_width="1px"
                     android:layout_height="fill_parent"
-                    android:background="@color/color_divider"/>
+                    android:background="@color/home_color_divider"/>
 
                 <LinearLayout
                     android:id="@+id/ll_course"
@@ -89,7 +89,7 @@
                 <View
                     android:layout_width="1px"
                     android:layout_height="fill_parent"
-                    android:background="@color/color_divider"/>
+                    android:background="@color/home_color_divider"/>
 
                 <LinearLayout
                     android:id="@+id/ll_room"
@@ -122,7 +122,7 @@
                 <View
                     android:layout_width="1px"
                     android:layout_height="fill_parent"
-                    android:background="@color/color_divider"/>
+                    android:background="@color/home_color_divider"/>
 
 
                 <LinearLayout
@@ -158,7 +158,7 @@
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1.0px"
-                android:background="@color/color_divider"/>
+                android:background="@color/home_color_divider"/>
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -197,7 +197,7 @@
                 <View
                     android:layout_width="1px"
                     android:layout_height="fill_parent"
-                    android:background="@color/color_divider"/>
+                    android:background="@color/home_color_divider"/>
 
                 <LinearLayout
                     android:id="@+id/ll_bus"
@@ -230,7 +230,7 @@
                 <View
                     android:layout_width="1px"
                     android:layout_height="fill_parent"
-                    android:background="@color/color_divider"/>
+                    android:background="@color/home_color_divider"/>
 
                 <LinearLayout
                     android:id="@+id/ll_map"
@@ -263,7 +263,7 @@
                 <View
                     android:layout_width="1px"
                     android:layout_height="fill_parent"
-                    android:background="@color/color_divider"/>
+                    android:background="@color/home_color_divider"/>
 
                 <LinearLayout
                     android:id="@+id/ll_kuaidi"
@@ -299,7 +299,7 @@
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1.0px"
-                android:background="@color/color_divider"/>
+                android:background="@color/home_color_divider"/>
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -337,7 +337,7 @@
                 <View
                     android:layout_width="1px"
                     android:layout_height="fill_parent"
-                    android:background="@color/color_divider"/>
+                    android:background="@color/home_color_divider"/>
 
                 <LinearLayout
                     android:id="@+id/ll_card"
@@ -370,7 +370,7 @@
                 <View
                     android:layout_width="1px"
                     android:layout_height="fill_parent"
-                    android:background="@color/color_divider"/>
+                    android:background="@color/home_color_divider"/>
 
                 <LinearLayout
                     android:id="@+id/ll_logout"
@@ -403,12 +403,12 @@
                 <View
                     android:layout_width="1px"
                     android:layout_height="fill_parent"
-                    android:background="@color/color_divider"/>
+                    android:background="@color/home_color_divider"/>
 
                 <View
                     android:layout_width="1px"
                     android:layout_height="fill_parent"
-                    android:background="@color/color_divider"/>
+                    android:background="@color/home_color_divider"/>
 
 
                 <LinearLayout
@@ -445,7 +445,7 @@
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1.0px"
-                android:background="@color/color_divider"/>
+                android:background="@color/home_color_divider"/>
 
             <com.bigkoo.convenientbanner.ConvenientBanner
             android:id="@+id/convenientBanner"
@@ -460,7 +460,7 @@
             <!--android:layout_width="fill_parent"-->
             <!--android:layout_height="120dp"-->
             <!--android:layout_marginTop="10dp"-->
-            <!--android:src="@mipmap/pic_banner_4"/>-->
+            <!--android:src="@mipmap/test6"/>-->
 
             <RelativeLayout
                 android:id="@+id/rl_home_more"
@@ -570,9 +570,6 @@
             android:textColor="#ffffff"
             android:textSize="15sp"
             android:textStyle="italic"/>
-
-
-
 
     </RelativeLayout>
 </RelativeLayout>

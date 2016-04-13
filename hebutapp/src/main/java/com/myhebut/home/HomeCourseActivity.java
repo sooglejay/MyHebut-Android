@@ -50,6 +50,7 @@ public class HomeCourseActivity extends SwipeBackActivity {
     @OnClick(R.id.tv_home_course_refresh)
     private void refresh(View view){
         Intent intent = new Intent(HomeCourseActivity.this, HomeJwcLoginActivity.class);
+        intent.putExtra("module","course");
         startActivity(intent);
         finish();
     }

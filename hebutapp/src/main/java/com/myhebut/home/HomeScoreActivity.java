@@ -32,24 +32,21 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 public class HomeScoreActivity extends SwipeBackActivity {
 
-    @ViewInject(R.id.sv_home_course)
-    private ScrollView mSvCourse;
+    @ViewInject(R.id.sv_home_score)
+    private ScrollView mSvScore;
 
-    @ViewInject(R.id.tv_home_course_today)
-    private TextView mTvCourseToday;
 
     @ViewInject(R.id.lv_home_course_all)
     private ListView mLvCourseAll;
 
-    @ViewInject(R.id.lv_home_course_today)
-    private ListView mLvCourseToday;
 
-    @ViewInject(R.id.tv_home_course_refresh)
+    @ViewInject(R.id.tv_home_score_refresh)
     private TextView mTvRefresh;
 
     @OnClick(R.id.tv_home_course_refresh)
     private void refresh(View view){
         Intent intent = new Intent(HomeScoreActivity.this, HomeJwcLoginActivity.class);
+        intent.putExtra("module","score");
         startActivity(intent);
         finish();
     }
@@ -65,9 +62,9 @@ public class HomeScoreActivity extends SwipeBackActivity {
         SwipeBackLayout swipeBackLayout = this.getSwipeBackLayout();
         swipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
         // 设置回弹
-        OverScrollDecoratorHelper.setUpOverScroll(mSvCourse);
+        OverScrollDecoratorHelper.setUpOverScroll(mSvScore);
         // scrollview滚动到最顶端
-        mSvCourse.smoothScrollTo(0, 0);
+        mSvScore.smoothScrollTo(0, 0);
         // 设置iconfont
         Typeface iconfont = Typeface.createFromAsset(this.getAssets(), "refresh.ttf");
         mTvRefresh.setTypeface(iconfont);
@@ -84,11 +81,7 @@ public class HomeScoreActivity extends SwipeBackActivity {
         // 设置listview适配器
         mLvCourseAll.setAdapter(new MyAdapter(this, R.layout.item_home_course_view, courses));
         List<Course> todayCourses = HebutUtil.selectToday(courses);
-        if (todayCourses.size() == 0){
-            mTvCourseToday.setText("课程表中今天没有课程哦~");
-        } else {
-            mLvCourseToday.setAdapter( new MyAdapter(this, R.layout.item_home_course_view, todayCourses));
-        }
+
     }
 
     private class MyAdapter extends ArrayAdapter<Course> {

@@ -20,5 +20,4 @@ public interface ExamListener {
 
 	public void changeAnswerStatus2F();
 
-
 }

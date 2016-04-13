@@ -73,6 +73,10 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
     private String module;
     // 从intent收到的数据,对应章节
     private String section;
+    // 从intent收到的数据,0为手动移除错题,1为自动移除错题
+    private String noteMode;
+    // nextFlag为true表明错题删除后需要跳转到下一页
+    private boolean nextFlag;
 
     private String subject;
 
@@ -140,7 +144,6 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
     @ViewInject(R.id.iv_exam_bottom_false_count)
     private ImageView mIvQuesFalseCount;
 
-
     @ViewInject(R.id.tv_exam_bottom_true_count)
     private TextView mTvQuesTrueCount;
 
@@ -189,17 +192,25 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
 
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
-                Toast.makeText(ExamActivity.this, "删除成功", Toast.LENGTH_SHORT).show();
+                // 非自动移除错题的模式下才显示提示
+                if (!"auto".equals(noteMode)) {
+                    Toast.makeText(ExamActivity.this, "删除成功", Toast.LENGTH_SHORT).show();
+                }
                 questionsDeleted.set(viewPager.getCurrentItem(), "1");
                 ((Button) view).setEnabled(false);
                 ((Button) view).setText("已删除");
+                // 跳转下一页
+                if (nextFlag) {
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    nextFlag = false;
+                }
                 // 动态删除页面 TODO
                 // deleteViewpager();
             }
 
             @Override
             public void onFailure(HttpException error, String msg) {
-                Toast.makeText(ExamActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ExamActivity.this, "删除错题失败,请检查网络设置", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -216,6 +227,7 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
         module = intent.getStringExtra("module");
         subject = intent.getStringExtra("subject");
         section = intent.getStringExtra("section");
+        noteMode = intent.getStringExtra("noteMode");
         isExam = "exam".equals(module);
 
         initView();
@@ -524,7 +536,13 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
 
     @Override
     public void nextPage() {
-        viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+        // 自动移除错题模式下,跳转下一页前先删除错题
+        if ("note".equals(module) && "auto".equals(noteMode)) {
+            mBtnDelete.performClick();
+            nextFlag = true;
+        } else {
+            viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+        }
     }
 
     @Override
@@ -581,6 +599,7 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
     public void changeAnswerStatus2F() {
         answerStatus.set(viewPager.getCurrentItem(), "0");
     }
+
 
     private void showPopMenu() {
         cardView.setOnClickListener(new OnClickListener() {
@@ -821,7 +840,6 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
         startActivity(intent);
         finish();
     }
-
 
     @Override
     public void onResume() {

@@ -6,7 +6,6 @@
     android:background="@color/main_bg"
     android:orientation="vertical">
 
-
     <RelativeLayout
         android:id="@+id/rl_home_jwc_title"
         android:layout_width="fill_parent"
@@ -27,12 +26,12 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:padding="8dp"
-            android:text="我的课表"
+            android:text="我的成绩"
             android:textColor="@color/title"
             android:textSize="16.0sp"/>
 
         <TextView
-            android:id="@+id/tv_home_course_refresh"
+            android:id="@+id/tv_home_score_refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -49,7 +48,7 @@
         android:background="@color/color_divider"/>
 
     <ScrollView
-        android:id="@+id/sv_home_course"
+        android:id="@+id/sv_home_score"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
@@ -59,7 +58,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_home_course_today"
+                android:id="@+id/tv_home_score_today"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -70,7 +69,7 @@
                 android:textSize="15sp"/>
 
             <com.myhebut.classes.ListViewForScrollView
-                android:id="@+id/lv_home_course_today"
+                android:id="@+id/lv_home_score_today"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -78,24 +77,6 @@
                 android:divider="#00000000"
                 android:dividerHeight="14dp"></com.myhebut.classes.ListViewForScrollView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginTop="10dp"
-                android:text="所有课程"
-                android:textColor="@color/font_dark"
-                android:textSize="15sp"/>
-
-            <com.myhebut.classes.ListViewForScrollView
-                android:id="@+id/lv_home_course_all"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="10dp"
-                android:divider="#00000000"
-                android:dividerHeight="14dp"></com.myhebut.classes.ListViewForScrollView>
 
         </LinearLayout>
 

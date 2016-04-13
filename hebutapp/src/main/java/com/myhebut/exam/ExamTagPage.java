@@ -42,9 +42,8 @@ public class ExamTagPage {
 
     @OnClick(R.id.rl_note)
     public void startNote(View view) {
-        Intent intent = new Intent(mainActivity, ExamActivity.class);
+        Intent intent = new Intent(mainActivity, ExamNoteActivity.class);
         intent.putExtra("url", UrlUtil.getUrlWithUserId("note", subject, userId));
-        intent.putExtra("module", "note");
         mainActivity.startActivity(intent);
     }
 

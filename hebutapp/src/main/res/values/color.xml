@@ -17,6 +17,7 @@
     <color name="title">#ff4d4d4d</color>
     <!-- exam_result from chelunkaojiazhao -->
     <color name="color_divider">#ffe6e6e6</color>
+    <color name="home_color_divider">#d2d1d1</color>
     <color name="font_gray_dark">#ff8c8c8c</color>
     <color name="font_gray_darker">#ff727272</color>
     <color name="font_dark">#ff4d4d4d</color>

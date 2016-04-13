@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     package="com.myhebut.activity"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1"
+    android:versionName="1.0">
 
     <!-- 解决Android L上通知显示异常问题，targetSdkVersion需要设置成22 -->
     <uses-sdk
@@ -70,6 +72,10 @@
         <activity android:name="com.myhebut.exam.ExamSectionActivity">
         </activity>
         <activity android:name="com.myhebut.exam.ExamResultActivity">
+        </activity>
+        <activity
+            android:name="com.myhebut.exam.ExamNoteActivity"
+            android:theme="@style/SwipeBackLayout">
         </activity>
         <activity
             android:name="com.myhebut.exam.ExamSearchActivity"

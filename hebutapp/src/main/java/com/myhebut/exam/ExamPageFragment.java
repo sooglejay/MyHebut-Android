@@ -348,13 +348,14 @@ public class ExamPageFragment extends Fragment {
                     manager.sendAddTrueCount();
                     // 答题卡题号变色
                     manager.sendChangeCard2True();
+                    // 延迟跳转
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            manager.sendNextPage();
+                        }
+                    }, 200);
                 }
-                // 延迟跳转
-                new Handler().postDelayed(new Runnable() {
-                    public void run() {
-                        manager.sendNextPage();
-                    }
-                }, 200);
+
             }
             isFinished = true;
         }
