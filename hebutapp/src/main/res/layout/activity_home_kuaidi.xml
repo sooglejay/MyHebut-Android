@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@color/main_bg"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:background="#ffffff">
+
+        <ImageView
+            android:layout_width="40.0dip"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:onClick="back"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_header_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="快递查询"
+            android:textColor="@color/title"
+            android:textSize="16.0sp"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_home_kuaidi_num"
+        android:layout_width="fill_parent"
+        android:layout_height="42.0dip"
+        android:layout_marginBottom="10.0dip"
+        android:layout_marginTop="10.0dip"
+        android:background="#ffffffff"
+        android:drawableLeft="@mipmap/ic_main_keyword_search"
+        android:drawablePadding="15.0dip"
+        android:gravity="center_vertical"
+        android:hint="请直接输入快递单号..."
+        android:maxLength="12"
+        android:paddingLeft="10.0dip"
+        android:textColor="#ff434343"
+        android:textSize="14.0sp"
+        />
+
+    <Button
+        android:id="@+id/bt_home_kuaidi_submit"
+        android:layout_width="250.0dip"
+        android:layout_height="43.0dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15.0dip"
+        android:background="@drawable/btn_radius"
+        android:text="搜索"
+        android:textColor="#ffffffff"
+        android:textSize="16.0sp"/>
+
+
+</LinearLayout>

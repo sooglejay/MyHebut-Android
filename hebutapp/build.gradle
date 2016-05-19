@@ -56,5 +56,5 @@ dependencies {
     compile files('libs/GetuiExt-2.0.3.jar')
     compile files('libs/GetuiSDK2.8.1.0.jar')
     compile 'de.greenrobot:greendao:2.1.0'
-    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'se.emilsjolander:stickylistheaders:2.7.0'
 }

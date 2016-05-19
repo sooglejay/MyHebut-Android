@@ -11,6 +11,9 @@ public class Score {
 	/** 学分 */
 	private String credit;
 
+	/** 对应学期 */
+	private int term;
+
 	public String getCourse() {
 		return course;
 	}
@@ -35,7 +38,14 @@ public class Score {
 		this.credit = string;
 	}
 
-	
+	public int getTerm() {
+		return term;
+	}
+
+	public void setTerm(int term) {
+		this.term = term;
+	}
+
 	@Override
 	public String toString() {
 		return "ScoreMsg [course=" + course + ", score=" + score + ",credit=" + credit + "]";

@@ -170,8 +170,8 @@ public class UrlUtil {
         return "http://ygty.hebut.edu.cn/admin/login.zul";
     }
 
-    public static String getKuaidiUrl() {
-        return "http://m.kuaidi100.com/?plg_nld=1&plg_uin=1&plg_auth=1&plg_nld=1&plg_usr=1&plg_vkey=1&plg_dev=1";
+    public static String getKuaidiUrl(String nu) {
+        return "http://m.kuaidi100.com/result.jsp?nu=" + nu;
     }
 
     public static String getNotificationUrl() {

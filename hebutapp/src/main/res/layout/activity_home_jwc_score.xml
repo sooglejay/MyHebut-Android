@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/main_bg"
+    android:background="#fff"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -47,40 +47,13 @@
         android:layout_height="1px"
         android:background="@color/color_divider"/>
 
-    <ScrollView
-        android:id="@+id/sv_home_score"
+
+    <se.emilsjolander.stickylistheaders.StickyListHeadersListView
+        android:id="@+id/lv_home_score"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_home_score_today"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginTop="10dp"
-                android:text="今日课程"
-                android:textColor="@color/font_dark"
-                android:textSize="15sp"/>
-
-            <com.myhebut.classes.ListViewForScrollView
-                android:id="@+id/lv_home_score_today"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="10dp"
-                android:divider="#00000000"
-                android:dividerHeight="14dp"></com.myhebut.classes.ListViewForScrollView>
-
-
-        </LinearLayout>
-
-    </ScrollView>
+        android:layout_height="wrap_content"
+        android:divider="@color/color_divider"
+        android:dividerHeight="1dp"></se.emilsjolander.stickylistheaders.StickyListHeadersListView>
 
 
 </LinearLayout>

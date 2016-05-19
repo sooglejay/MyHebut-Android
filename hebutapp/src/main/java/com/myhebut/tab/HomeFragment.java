@@ -20,8 +20,10 @@ import com.myhebut.entity.Banner;
 import com.myhebut.home.HomeBusActivity;
 import com.myhebut.home.HomeCourseActivity;
 import com.myhebut.home.HomeJwcLoginActivity;
+import com.myhebut.home.HomeKuaidiActivity;
 import com.myhebut.home.HomeMapActivity;
 import com.myhebut.home.HomeMusicActivity;
+import com.myhebut.home.HomeScoreActivity;
 import com.myhebut.setting.SettingFeedbackActivity;
 import com.myhebut.utils.MyConstants;
 import com.myhebut.utils.SpUtil;
@@ -90,7 +92,7 @@ public class HomeFragment extends BaseFragment {
         String jsonData = SpUtil.getString(mainActivity, MyConstants.SCOREDATA, null);
         Intent intent;
         if (jsonData != null) {
-            intent = new Intent(mainActivity, HomeCourseActivity.class);
+            intent = new Intent(mainActivity, HomeScoreActivity.class);
         } else {
             intent = new Intent(mainActivity, HomeJwcLoginActivity.class);
             intent.putExtra("module", "score");
@@ -157,9 +159,7 @@ public class HomeFragment extends BaseFragment {
 
     @OnClick(R.id.ll_kuaidi)
     private void kuaidi(View view) {
-        Intent intent = new Intent(mainActivity, WebViewActivity.class);
-        intent.putExtra("href", UrlUtil.getKuaidiUrl());
-        intent.putExtra("title", "查快递");
+        Intent intent = new Intent(mainActivity, HomeKuaidiActivity.class);
         mainActivity.startActivity(intent);
     }
 

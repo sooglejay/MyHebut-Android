@@ -23,12 +23,13 @@
             android:src="@mipmap/ic_header_back"/>
 
         <TextView
+            android:id="@+id/tv_home_jwc_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
             android:padding="8dp"
-            android:text="课表查询"
+            android:text=""
             android:textColor="@color/title"
             android:textSize="16.0sp"/>
     </RelativeLayout>

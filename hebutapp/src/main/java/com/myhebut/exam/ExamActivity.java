@@ -688,7 +688,11 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
     }
 
     private void checkAnswer() {
-        score = 40;
+        if ("2".equals(subject)){
+            score = 100;
+        } else {
+            score = 40;
+        }
         // 获取错题答案
         wrongAnswers = new ArrayList<>();
         String examAnswer;

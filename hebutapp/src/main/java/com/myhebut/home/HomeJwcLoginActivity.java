@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -45,6 +46,9 @@ public class HomeJwcLoginActivity extends SwipeBackActivity {
     @ViewInject(R.id.et_home_jwc_authCode)
     private EditText mEtAuthCode;
 
+    @ViewInject(R.id.tv_home_jwc_title)
+    private TextView mTvTitle;
+
     private HttpUtils http;
 
     private int userId;
@@ -83,7 +87,7 @@ public class HomeJwcLoginActivity extends SwipeBackActivity {
         Gson gson = new Gson();
         JsonScore jsonScore = gson.fromJson(jsonData, JsonScore.class);
         if (jsonScore.getStatus() == true) {
-            // 保存课程信息
+            // 保存成绩信息
             SpUtil.setString(this, MyConstants.SCOREDATA, jsonData);
             Intent intent = new Intent(HomeJwcLoginActivity.this,HomeScoreActivity.class);
             startActivity(intent);
@@ -134,7 +138,11 @@ public class HomeJwcLoginActivity extends SwipeBackActivity {
 
         Intent intent = getIntent();
         module = intent.getStringExtra("module");
-
+        if (module.equals("score")){
+            mTvTitle.setText("成绩查询");
+        } else {
+            mTvTitle.setText("课表查询");
+        }
         getAuthCode();
 
     }
