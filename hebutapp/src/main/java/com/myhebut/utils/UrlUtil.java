@@ -100,6 +100,11 @@ public class UrlUtil {
         return URL + "/music";
     }
 
+    public static String getMusisTimesUrl() {
+        return URL + "/getTimes";
+    }
+
+
     public static String getCardUrl() {
         return "http://ecard.hebut.edu.cn:8070/";
     }
