@@ -91,39 +91,6 @@
                     android:layout_height="fill_parent"
                     android:background="@color/home_color_divider"/>
 
-                <LinearLayout
-                    android:id="@+id/ll_room"
-                    android:layout_width="0.0dip"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1.0"
-                    android:background="@drawable/function_module_bg"
-                    android:clickable="true"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tv_home_room"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/main_function_icon_margin"
-                        android:text="@string/room"
-                        android:textColor="@color/function_green"
-                        android:textSize="@dimen/main_function_icon"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/main_function_font_margin"
-                        android:text="查教室"
-                        android:textColor="@color/exam_text"
-                        android:textSize="@dimen/main_function_font"/>
-                </LinearLayout>
-
-                <View
-                    android:layout_width="1px"
-                    android:layout_height="fill_parent"
-                    android:background="@color/home_color_divider"/>
-
 
                 <LinearLayout
                     android:id="@+id/ll_cet"
@@ -141,7 +108,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/main_function_icon_margin"
                         android:text="@string/cet"
-                        android:textColor="@color/function_red"
+                        android:textColor="@color/function_blue"
                         android:textSize="34sp"/>
 
                     <TextView
@@ -153,6 +120,38 @@
                         android:textSize="@dimen/main_function_font"/>
                 </LinearLayout>
 
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/home_color_divider"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_music"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_music"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/music"
+                        android:textColor="@color/function_red"
+                        android:textSize="@dimen/main_function_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="广播站点歌"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
             </LinearLayout>
 
             <View
@@ -306,33 +305,6 @@
                 android:layout_height="84.0dip"
                 android:background="#ffffffff">
 
-                <LinearLayout
-                    android:id="@+id/ll_music"
-                    android:layout_width="0.0dip"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1.0"
-                    android:background="@drawable/function_module_bg"
-                    android:clickable="true"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tv_home_music"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/main_function_icon_margin"
-                        android:text="@string/music"
-                        android:textColor="@color/function_red"
-                        android:textSize="@dimen/main_function_icon"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/main_function_font_margin"
-                        android:text="广播站点歌"
-                        android:textColor="@color/exam_text"
-                        android:textSize="@dimen/main_function_font"/>
-                </LinearLayout>
 
                 <View
                     android:layout_width="1px"
@@ -405,12 +377,6 @@
                     android:layout_height="fill_parent"
                     android:background="@color/home_color_divider"/>
 
-                <View
-                    android:layout_width="1px"
-                    android:layout_height="fill_parent"
-                    android:background="@color/home_color_divider"/>
-
-
                 <LinearLayout
                     android:id="@+id/ll_guide"
                     android:layout_width="0.0dip"
@@ -439,6 +405,33 @@
                         android:textSize="@dimen/main_function_font"/>
                 </LinearLayout>
 
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/home_color_divider"/>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_more"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/function_module_bg"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_home_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_icon_margin"
+                        android:text="@string/more"
+                        android:textColor="@color/home_color_divider"
+                        android:textSize="18sp"/>
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -448,13 +441,13 @@
                 android:background="@color/home_color_divider"/>
 
             <com.bigkoo.convenientbanner.ConvenientBanner
-            android:id="@+id/convenientBanner"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_marginTop="10dp"
-            app:canLoop="true"
-            />
+                android:id="@+id/convenientBanner"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="10dp"
+                app:canLoop="true"
+                />
 
             <!--<ImageView-->
             <!--android:layout_width="fill_parent"-->
@@ -562,10 +555,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="60dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
             android:gravity="center"
             android:lineSpacingMultiplier="1.3"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:text="我进去吧。你们去了也找不到。我做的，我知道。——邓稼先"
             android:textColor="#ffffff"
             android:textSize="15sp"

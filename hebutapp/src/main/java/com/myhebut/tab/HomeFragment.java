@@ -50,8 +50,6 @@ public class HomeFragment extends BaseFragment {
     private TextView mTvScore;
     @ViewInject(R.id.tv_home_course)
     private TextView mTvCourse;
-    @ViewInject(R.id.tv_home_room)
-    private TextView mTvRoom;
     @ViewInject(R.id.tv_home_daka)
     private TextView mTvDaka;
     @ViewInject(R.id.tv_home_bus)
@@ -70,6 +68,8 @@ public class HomeFragment extends BaseFragment {
     private TextView mTvXiala;
     @ViewInject(R.id.tv_home_kuaidi)
     private TextView mTvKuaidi;
+    @ViewInject(R.id.tv_home_more)
+    private TextView mTvMore;
     @ViewInject(R.id.tv_home_cet)
     private TextView mTvCet;
     @ViewInject(R.id.tv_home_guide)
@@ -209,7 +209,6 @@ public class HomeFragment extends BaseFragment {
         Typeface iconfont = Typeface.createFromAsset(mainActivity.getAssets(), "function.ttf");
         mTvScore.setTypeface(iconfont);
         mTvCourse.setTypeface(iconfont);
-        mTvRoom.setTypeface(iconfont);
         mTvDaka.setTypeface(iconfont);
         mTvBus.setTypeface(iconfont);
         mTvMap.setTypeface(iconfont);
@@ -220,6 +219,7 @@ public class HomeFragment extends BaseFragment {
         mTvXiala.setTypeface(iconfont);
         iconfont = Typeface.createFromAsset(mainActivity.getAssets(), "more.ttf");
         mTvCard.setTypeface(iconfont);
+        mTvMore.setTypeface(iconfont);
         iconfont = Typeface.createFromAsset(mainActivity.getAssets(), "function_add.ttf");
         mTvKuaidi.setTypeface(iconfont);
         mTvCet.setTypeface(iconfont);
