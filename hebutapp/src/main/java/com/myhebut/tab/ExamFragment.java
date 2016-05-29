@@ -35,7 +35,7 @@ public class ExamFragment extends BaseFragment {
     @ViewInject(R.id.vp_exam_index)
     private NoScrollViewPage mVpExam;
 
-    private String[] subjects = {"马原", "毛概(上)", "毛概(下)"};
+    private String[] subjects = {"马原", "毛概上", "毛概下","史纲"};
 
     private List<ExamTagPage> pages = new ArrayList<ExamTagPage>();
 
@@ -58,12 +58,9 @@ public class ExamFragment extends BaseFragment {
         }
 
         if (pages.size() == 0) {
-            // 马原
-            pages.add(new ExamTagPage((MainActivity) getActivity(), 0));
-            // 毛概(上)
-            pages.add(new ExamTagPage((MainActivity) getActivity(), 1));
-            // 毛概(下)
-            pages.add(new ExamTagPage((MainActivity) getActivity(), 2));
+            for(int i = 0; i < subjects.length; i++){
+                pages.add(new ExamTagPage((MainActivity) getActivity(), i));
+            }
         }
         MyAdapter adapter = new MyAdapter();
 

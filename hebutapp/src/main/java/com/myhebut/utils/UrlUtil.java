@@ -183,4 +183,9 @@ public class UrlUtil {
         return URL + "/notification";
     }
 
+    public static String getDownloadUrl() {
+        return "http://www.myhebut.com/download";
+    }
+
+
 }

@@ -129,6 +129,12 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
     @ViewInject(R.id.rg_exam_top_mode)
     private RadioGroup mRgMode;
 
+    @ViewInject(R.id.rb_exam_top_left)
+    private RadioButton mRbLeft;
+
+    @ViewInject(R.id.rb_exam_top_right)
+    private RadioButton mRbRight;
+
     @ViewInject(R.id.tv_exam_top_time)
     private TextView mTvExamTime;
 
@@ -204,8 +210,6 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
                     viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
                     nextFlag = false;
                 }
-                // 动态删除页面 TODO
-                // deleteViewpager();
             }
 
             @Override
@@ -300,8 +304,11 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
                 try {
                     parseData(jsonData);
                     initAdapter();
-                    // 数据初始化完毕后才可以交卷
-                    mTvSubmit.setClickable(true);
+                    // 数据初始化完毕后才可以交卷/切换模式/收藏
+                    mTvSubmit.setEnabled(true);
+                    mRbLeft.setEnabled(true);
+                    mRbRight.setEnabled(true);
+                    mCbxCollect.setEnabled(true);
                 } catch (Exception e) {
                     Toast.makeText(ExamActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
                 }
@@ -434,19 +441,18 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
                     mode = true;
                     // 当前页与前后两页已经预先加载完成,需要在此控制模式
                     fragmentList.get(currentItem).changeToLearnMode();
-                    // TODO 预加载出错
-                    //                    if (currentItem != 0)
-                    //                        fragmentList.get(currentItem - 1).changeToLearnMode();
-                    //                    if (currentItem != fragmentList.size() - 1)
-                    //                        fragmentList.get(currentItem + 1).changeToLearnMode();
+                    if (currentItem != 0)
+                        fragmentList.get(currentItem - 1).changeToLearnMode();
+                    if (currentItem != fragmentList.size() - 1)
+                        fragmentList.get(currentItem + 1).changeToLearnMode();
                 } else {
                     mode = false;
                     // 当前页与前后两页已经预先加载完成,需要在此控制模式
                     fragmentList.get(currentItem).changeToAnswerMode();
-                    //                    if (currentItem != 0)
-                    //                        fragmentList.get(currentItem - 1).changeToAnswerMode();
-                    //                    if (currentItem != fragmentList.size() - 1)
-                    //                        fragmentList.get(currentItem + 1).changeToAnswerMode();
+                    if (currentItem != 0)
+                        fragmentList.get(currentItem - 1).changeToAnswerMode();
+                    if (currentItem != fragmentList.size() - 1)
+                        fragmentList.get(currentItem + 1).changeToAnswerMode();
                 }
 
             }
@@ -469,11 +475,6 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
         public int getCount() {
             return fragmentList.size();
         }
-
-        // @Override
-        // public int getItemPosition(Object object) {
-        // return PagerAdapter.POSITION_NONE;
-        // }
 
     }
 
@@ -628,29 +629,6 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
         mPopupWindow.update();
     }
 
-    /*
-     * 动态删除页面 TODO
-     */
-    private void deleteViewpager() {
-        int currentItem = viewPager.getCurrentItem();
-        fragmentList.remove(currentItem);
-        questionsStatus.remove(currentItem);
-
-        // 如果删除的是最后一页,则将当前页转换为最后一页的前一页(currentItem从0开始计数)
-        quesCount = quesCount - 1;
-        examAdapter.notifyDataSetChanged();
-
-        if (currentItem == fragmentList.size()) {
-            // 如果是最后一页,则返回至前一页
-            viewPager.setCurrentItem(currentItem - 1);
-        } else {
-            // 如果不是最后一页,则返回至跳转到下一页
-            // viewPager.setCurrentItem(currentItem + 1);
-            // 题号保持不变
-            mTvQuesCount.setText((currentItem + 1) + "/" + quesCount);
-        }
-    }
-
     private void dialog() {
         // 若为true,则有题目未答
         boolean flag = false;
@@ -688,8 +666,8 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
     }
 
     private void checkAnswer() {
-        if ("2".equals(subject)){
-            score = 100;
+        if ("3".equals(subject)){
+            score = 50;
         } else {
             score = 40;
         }
@@ -747,6 +725,9 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
                 break;
             case "2":
                 mTvSubject.setText("毛概(下)");
+                break;
+            case "3":
+                mTvSubject.setText("史纲");
                 break;
             default:
                 break;
@@ -807,10 +788,6 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
 
     public void back(View view) {
         finish();
-    }
-
-    public void onShareClick(View view) {
-
     }
 
     public void onWrongClick(View view) {

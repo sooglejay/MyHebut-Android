@@ -176,8 +176,8 @@ public class ExamSectionActivity extends FragmentActivity {
             mTvSection_0.setVisibility(View.GONE);
             mTvSection_7.setVisibility(View.GONE);
         }
-        // 毛概下分为10个章节
-        if (subject.equals("2")) {
+        // 毛概下和史纲分为10个章节
+        if (subject.equals("2") || subject.equals("3")) {
             mTvSection_8.setVisibility(View.VISIBLE);
             mTvSection_9.setVisibility(View.VISIBLE);
         }

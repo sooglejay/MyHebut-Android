@@ -23,6 +23,7 @@
             android:gravity="center"
             android:padding="0.0px"
             android:text="收藏"
+            android:enabled="false"
             android:textColor="@color/exam_text_darker"
             android:textSize="13.0sp"
             />

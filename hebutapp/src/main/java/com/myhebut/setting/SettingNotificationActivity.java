@@ -106,6 +106,7 @@ public class SettingNotificationActivity extends SwipeBackActivity {
         Query query = dao.queryBuilder().orderDesc(NotificationDao.Properties.Id)
                 .build();
         notifications = query.list();
+        Log.d("dao",notifications.size() + "");
 
         adapter = new MyAdapter(this, R.layout.item_setting_notification_view, notifications);
         mLvNotification.setAdapter(adapter);

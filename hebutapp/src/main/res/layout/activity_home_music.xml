@@ -89,8 +89,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginTop="50dp"
-        android:paddingRight="16dp"
-        android:text="上述服务由微信“河北工业大学大学生校园广播站”提供"
+        android:paddingRight="30dp"
+        android:text="想要更多服务请关注微博/微信"
+        android:textColor="@color/font_gray_dark"
+        android:textIsSelectable="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="10dp"
+        android:paddingRight="30dp"
+        android:text="“河北工业大学大学生校园广播站”"
         android:textColor="@color/font_gray_dark"
         android:textIsSelectable="true"
         />

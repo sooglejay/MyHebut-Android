@@ -101,11 +101,9 @@ public class ExamPageFragment extends Fragment {
             answers.add("E");
         }
         // 正确答案显示字母
-        Log.d("exam", "answerT:" + answerT);
         char[] arrayAnswerT = answerT.toCharArray();
         for (int i = 0; i < arrayAnswerT.length; i++) {
             showTrueAnswerByLetter(String.valueOf(arrayAnswerT[i]));
-            Log.d("exam", "answerT Letter:" + String.valueOf(arrayAnswerT[i]));
         }
         // 如果有一个选项错误,则为false
         boolean flag = true;
@@ -372,7 +370,6 @@ public class ExamPageFragment extends Fragment {
 
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            Log.d("exam", "answerT:" + question.getAnswerT());
             // 将checkbox设置为单选模式,多选题无需设置
             if (isChecked && type == 0) {
                 answerA.setChecked(false);
@@ -513,7 +510,6 @@ public class ExamPageFragment extends Fragment {
                 break;
             case "E":
                 drawable = getResources().getDrawable(R.mipmap.ic_exam_e_true);
-                Log.d("exam","??????????????????");
                 break;
             default:
                 break;

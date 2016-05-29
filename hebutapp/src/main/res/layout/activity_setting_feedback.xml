@@ -99,7 +99,7 @@
         android:layout_marginRight="20.0dip"
         android:background="#ffffff"
         android:gravity="top|left|center"
-        android:hint="在这里,你可以吐槽悦河工,也可以描述你期待的功能"
+        android:hint="在这里,你可以吐槽悦河工,也可以描述你期待的功能."
         android:lineSpacingExtra="1.0dip"
         android:maxLength="500"
         android:padding="13.329987dip"

@@ -44,6 +44,7 @@
                     android:checked="true"
                     android:gravity="center"
                     android:text="答题模式"
+                    android:enabled="false"
                     android:textColor="@color/exam_mode_btn_color"
                     android:textSize="14.0sp"/>
 
@@ -55,6 +56,7 @@
                     android:button="@null"
                     android:gravity="center"
                     android:text="学习模式"
+                    android:enabled="false"
                     android:textColor="@color/exam_mode_btn_color"
                     android:textSize="14.0sp"/>
             </RadioGroup>
@@ -92,7 +94,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="8.0dip"
                 android:paddingRight="8.0dip"
-                android:clickable="false"
+                android:enabled="false"
                 android:text="交卷"
                 android:textColor="#ff434343"
                 android:textSize="14.0sp"

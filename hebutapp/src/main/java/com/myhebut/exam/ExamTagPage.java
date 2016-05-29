@@ -126,6 +126,8 @@ public class ExamTagPage {
             mTvTitle.setText("Hebut · 毛概(上)");
         } else if (subject == 2) {
             mTvTitle.setText("Hebut · 毛概(下)");
+        } else {
+            mTvTitle.setText("Hebut · 近现代史纲要");
         }
 
     }

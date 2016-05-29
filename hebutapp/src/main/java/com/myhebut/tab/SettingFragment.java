@@ -10,6 +10,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.myhebut.activity.LoginActivity;
 import com.myhebut.activity.R;
+import com.myhebut.activity.WebViewActivity;
 import com.myhebut.application.MyApplication;
 import com.myhebut.entity.User;
 import com.myhebut.listener.SettingListener;
@@ -53,7 +54,10 @@ public class SettingFragment extends BaseFragment implements SettingListener {
 
     @OnClick(R.id.rl_setting_about)
     private void about(View view) {
-
+        Intent intent = new Intent(mainActivity, WebViewActivity.class);
+        intent.putExtra("href", UrlUtil.getDownloadUrl());
+        intent.putExtra("title", "源码下载");
+        mainActivity.startActivity(intent);
     }
 
     @OnClick(R.id.rl_setting_exit)
