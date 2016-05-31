@@ -291,7 +291,7 @@ public class ExamResultActivity extends FragmentActivity {
             }
             tv.setText((getItemId(position) + 1) + "");
             tv.setGravity(Gravity.CENTER);
-            tv.setLayoutParams(new LayoutParams(DensityUtil.dip2px(context, 45), DensityUtil.dip2px(context, 45)));
+            tv.setLayoutParams(new GridView.LayoutParams(DensityUtil.dip2px(context, 45), DensityUtil.dip2px(context, 45)));
 
             tv.setBackgroundResource(R.drawable.card_item_default_bg_selector);
             // 添加事件监听
