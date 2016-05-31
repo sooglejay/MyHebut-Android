@@ -8,7 +8,6 @@ import android.util.Log;
 
 import com.igexin.sdk.PushConsts;
 import com.myhebut.manager.MainManager;
-import com.myhebut.manager.SettingManager;
 import com.myhebut.utils.MyConstants;
 import com.myhebut.utils.SpUtil;
 
@@ -33,9 +32,6 @@ public class PushReceiver extends BroadcastReceiver {
                     SpUtil.setString(context, MyConstants.TEMPNOTIFICATION, data);
                     // 在程序启动的情况下,直接添加数据,并消除未添加的flag
                     MainManager.getInstance().sendAddNotification();
-                    // 直接显示红点
-                    MainManager.getInstance().sendSetVisible(true);
-                    SettingManager.getInstance().sendSetVisible(true);
                     // 在程序没有启动的情况下接受数据,上述语句不能执行,只能通过sp来记录消息
                     SpUtil.setBoolean(context, MyConstants.ISREAD, false);
                 }

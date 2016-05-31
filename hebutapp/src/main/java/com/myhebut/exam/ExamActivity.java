@@ -457,7 +457,13 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
 
             }
         });
-
+        // 答题卡隐藏事件
+        cardView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPopupWindow.dismiss();
+            }
+        });
     }
 
     class ExamAdapter extends FragmentStatePagerAdapter {
@@ -506,7 +512,7 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
             }
             tv.setText((getItemId(position) + 1) + "");
             tv.setGravity(Gravity.CENTER);
-            tv.setLayoutParams(new LayoutParams(DensityUtil.dip2px(context, 45), DensityUtil.dip2px(context, 45)));
+            tv.setLayoutParams(new GridView.LayoutParams(DensityUtil.dip2px(context, 45), DensityUtil.dip2px(context, 45)));
             if (questionsStatus.get(position).equals("1")) {
                 tv.setBackgroundResource(R.drawable.card_item_true_bg);
             } else if (questionsStatus.get(position).equals("2")) {
@@ -603,12 +609,6 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
 
 
     private void showPopMenu() {
-        cardView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPopupWindow.dismiss();
-            }
-        });
 
         cardView.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in));
         LinearLayout ll_popup = (LinearLayout) cardView.findViewById(R.id.ll_popup);
@@ -623,7 +623,10 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
             mPopupWindow.setFocusable(true);
             mPopupWindow.setOutsideTouchable(true);
         }
-
+        TextView textView = new TextView(this);
+        textView.setText("sdfsdf");
+        textView.setTextSize(25);
+        textView.setGravity(Gravity.CENTER);
         mPopupWindow.setContentView(cardView);
         mPopupWindow.showAtLocation(mTvQuesCount, Gravity.BOTTOM, 0, 0);
         mPopupWindow.update();

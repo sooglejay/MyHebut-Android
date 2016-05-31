@@ -43,8 +43,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:singleLine="false"
-        android:padding="10dp"
-        android:textSize="15sp"
+        android:padding="20dp"
+        android:textSize="16sp"
+        android:lineSpacingExtra="9dp"
         android:textColor="@color/font_gray_darker"/>
 
 </LinearLayout>

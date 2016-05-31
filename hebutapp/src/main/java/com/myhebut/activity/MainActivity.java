@@ -21,6 +21,7 @@ import com.myhebut.greendao.Notification;
 import com.myhebut.greendao.NotificationDao;
 import com.myhebut.listener.MainListener;
 import com.myhebut.manager.MainManager;
+import com.myhebut.manager.SettingManager;
 import com.myhebut.tab.ExamFragment;
 import com.myhebut.tab.FindFragment;
 import com.myhebut.tab.HomeFragment;
@@ -103,6 +104,10 @@ public class MainActivity extends FragmentActivity implements MainListener {
         } else {
             point.setVisibility(View.GONE);
         }
+        // 如果用户设置直接进入考试模块,则自动进行模块跳转
+        if (SpUtil.getBoolean(this, MyConstants.ISENTEREXAM, false)){
+            mTabHost.setCurrentTab(2);
+        }
     }
 
     // 设置tab按钮样式
@@ -158,6 +163,9 @@ public class MainActivity extends FragmentActivity implements MainListener {
                 dao.insert(notification);
                 // 消除未添加的flag
                 SpUtil.setBoolean(this, MyConstants.ISWAITINGFORADD, true);
+                // 直接显示红点
+                MainManager.getInstance().sendSetVisible(true);
+                SettingManager.getInstance().sendSetVisible(true);
             } catch (Exception e) {
                 Log.d("PushReceiver", "json has an error");
             }

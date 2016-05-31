@@ -29,5 +29,6 @@ public interface MyConstants {
     String ISWAITINGFORADD = "iswaitingforadd";
     // 未添加到数据库的消息
     String TEMPNOTIFICATION = "tempnotification";
-
+    // 是否直接进入考试模块
+    String ISENTEREXAM = "";
 }

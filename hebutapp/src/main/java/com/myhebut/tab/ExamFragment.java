@@ -4,6 +4,8 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
@@ -35,7 +37,10 @@ public class ExamFragment extends BaseFragment {
     @ViewInject(R.id.vp_exam_index)
     private NoScrollViewPage mVpExam;
 
-    private String[] subjects = {"马原", "毛概上", "毛概下","史纲"};
+    @ViewInject(R.id.toggleBtn_exam_index)
+    private ToggleButton mToggleBtn;
+
+    private String[] subjects = {"马原", "毛概上", "毛概下", "史纲"};
 
     private List<ExamTagPage> pages = new ArrayList<ExamTagPage>();
 
@@ -58,7 +63,7 @@ public class ExamFragment extends BaseFragment {
         }
 
         if (pages.size() == 0) {
-            for(int i = 0; i < subjects.length; i++){
+            for (int i = 0; i < subjects.length; i++) {
                 pages.add(new ExamTagPage((MainActivity) getActivity(), i));
             }
         }
@@ -84,11 +89,16 @@ public class ExamFragment extends BaseFragment {
                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.ALIGN_PARENT_RIGHT);
         //　轮播起始页
         convenientBanner.setcurrentitem(new Random().nextInt(3));
+        // 设置ToggleButton的用户选择
+        if (SpUtil.getBoolean(mainActivity, MyConstants.ISENTEREXAM, false)){
+            mToggleBtn.setChecked(true);
+        }
         super.initData();
     }
 
     @Override
     public void initEvent() {
+        // 记住用户每次选择的科目
         mTpiExam.setOnPageChangeListener(new OnPageChangeListener() {
 
             @Override
@@ -106,6 +116,19 @@ public class ExamFragment extends BaseFragment {
 
             }
         });
+        // 设置启动app是否要直接进入考试模块
+        mToggleBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    SpUtil.setBoolean(mainActivity, MyConstants.ISENTEREXAM, true);
+                } else {
+                    SpUtil.setBoolean(mainActivity, MyConstants.ISENTEREXAM, false);
+                }
+
+            }
+        });// 添加监听事件
 
         super.initEvent();
     }
