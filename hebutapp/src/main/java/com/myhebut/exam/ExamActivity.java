@@ -442,17 +442,21 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
                     // 当前页与前后两页已经预先加载完成,需要在此控制模式
                     fragmentList.get(currentItem).changeToLearnMode();
                     if (currentItem != 0)
-                        fragmentList.get(currentItem - 1).changeToLearnMode();
+                        if (fragmentList.get(currentItem - 1).getFlag())
+                            fragmentList.get(currentItem - 1).changeToLearnMode();
                     if (currentItem != fragmentList.size() - 1)
-                        fragmentList.get(currentItem + 1).changeToLearnMode();
+                        if (fragmentList.get(currentItem + 1).getFlag())
+                            fragmentList.get(currentItem + 1).changeToLearnMode();
                 } else {
                     mode = false;
                     // 当前页与前后两页已经预先加载完成,需要在此控制模式
                     fragmentList.get(currentItem).changeToAnswerMode();
                     if (currentItem != 0)
-                        fragmentList.get(currentItem - 1).changeToAnswerMode();
+                        if (fragmentList.get(currentItem - 1).getFlag())
+                            fragmentList.get(currentItem - 1).changeToAnswerMode();
                     if (currentItem != fragmentList.size() - 1)
-                        fragmentList.get(currentItem + 1).changeToAnswerMode();
+                        if (fragmentList.get(currentItem + 1).getFlag())
+                            fragmentList.get(currentItem + 1).changeToAnswerMode();
                 }
 
             }
@@ -669,7 +673,7 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
     }
 
     private void checkAnswer() {
-        if ("3".equals(subject)){
+        if ("3".equals(subject)) {
             score = 50;
         } else {
             score = 40;

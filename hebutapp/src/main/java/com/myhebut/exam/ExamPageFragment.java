@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +57,9 @@ public class ExamPageFragment extends Fragment {
     private int type;
 
     private ExamManager manager;
+
+    // flag为true代表fragment已初始化完成
+    private boolean flag;
 
     @ViewInject(R.id.tv_exam_content_text)
     private TextView content;
@@ -155,7 +157,6 @@ public class ExamPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_exam_practice_content, null);
         ViewUtils.inject(this, view);
-
         return view;
     }
 
@@ -176,6 +177,7 @@ public class ExamPageFragment extends Fragment {
         } else {
             changeToAnswerMode();
         }
+        flag = true;
     }
 
     /*
@@ -605,6 +607,16 @@ public class ExamPageFragment extends Fragment {
 
     public String getExamAnswer() {
         return examAnswer;
+    }
+
+    @Override
+    public void onDestroyView() {
+        flag = false;
+        super.onDestroyView();
+    }
+
+    public boolean getFlag(){
+        return flag;
     }
 
 }

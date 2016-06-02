@@ -172,7 +172,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rl_setting_about"
+        android:id="@+id/rl_setting_download"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/setting_item_height"
         android:background="@drawable/item_selector"
@@ -190,7 +190,46 @@
             android:layout_height="fill_parent"
             android:layout_marginLeft="45dp"
             android:gravity="center_vertical"
-            android:text="关于软件"
+            android:text="源码下载"
+            android:textColor="@color/font_dark_2"
+            android:textSize="14dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/ic_item_enter"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="45dp"
+            android:background="@color/color_divider"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_setting_donate"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/setting_item_height"
+        android:background="@drawable/item_selector"
+        android:clickable="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/ic_setting_donate"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="45dp"
+            android:gravity="center_vertical"
+            android:text="打赏作者"
             android:textColor="@color/font_dark_2"
             android:textSize="14dp"/>
 

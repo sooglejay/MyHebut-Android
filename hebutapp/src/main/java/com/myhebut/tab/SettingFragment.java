@@ -52,11 +52,19 @@ public class SettingFragment extends BaseFragment implements SettingListener {
         startActivity(intent);
     }
 
-    @OnClick(R.id.rl_setting_about)
-    private void about(View view) {
+    @OnClick(R.id.rl_setting_download)
+    private void download(View view) {
         Intent intent = new Intent(mainActivity, WebViewActivity.class);
         intent.putExtra("href", UrlUtil.getDownloadUrl());
         intent.putExtra("title", "源码下载");
+        mainActivity.startActivity(intent);
+    }
+
+    @OnClick(R.id.rl_setting_donate)
+    private void donate(View view) {
+        Intent intent = new Intent(mainActivity, WebViewActivity.class);
+        intent.putExtra("href", UrlUtil.getDonateUrl());
+        intent.putExtra("title", "打赏作者");
         mainActivity.startActivity(intent);
     }
 

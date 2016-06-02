@@ -187,5 +187,8 @@ public class UrlUtil {
         return "http://www.myhebut.com/download";
     }
 
+    public static String getDonateUrl() {
+        return "http://www.myhebut.com/donate";
+    }
 
 }
