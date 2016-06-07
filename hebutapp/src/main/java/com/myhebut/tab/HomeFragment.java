@@ -19,6 +19,7 @@ import com.myhebut.classes.NetworkImageHolderView;
 import com.myhebut.entity.Banner;
 import com.myhebut.home.HomeBusActivity;
 import com.myhebut.home.HomeCourseActivity;
+import com.myhebut.home.HomeHistoryActivity;
 import com.myhebut.home.HomeJwcLoginActivity;
 import com.myhebut.home.HomeKuaidiActivity;
 import com.myhebut.home.HomeMapActivity;
@@ -72,8 +73,8 @@ public class HomeFragment extends BaseFragment {
     private TextView mTvMore;
     @ViewInject(R.id.tv_home_cet)
     private TextView mTvCet;
-    @ViewInject(R.id.tv_home_guide)
-    private TextView mTvGuide;
+    @ViewInject(R.id.tv_home_history)
+    private TextView mTvHistory;
     @ViewInject(R.id.tv_home_motto)
     private TextView mTvMotto;
 
@@ -171,11 +172,9 @@ public class HomeFragment extends BaseFragment {
         mainActivity.startActivity(intent);
     }
 
-    @OnClick(R.id.ll_guide)
+    @OnClick(R.id.ll_history)
     private void guide(View view) {
-        Intent intent = new Intent(mainActivity, WebViewActivity.class);
-        intent.putExtra("href", UrlUtil.getGuideUrl());
-        intent.putExtra("title", "学生服务中心");
+        Intent intent = new Intent(mainActivity, HomeHistoryActivity.class);
         mainActivity.startActivity(intent);
     }
 
@@ -223,7 +222,7 @@ public class HomeFragment extends BaseFragment {
         iconfont = Typeface.createFromAsset(mainActivity.getAssets(), "function_add.ttf");
         mTvKuaidi.setTypeface(iconfont);
         mTvCet.setTypeface(iconfont);
-        mTvGuide.setTypeface(iconfont);
+        mTvHistory.setTypeface(iconfont);
     }
 
     @Override
@@ -274,7 +273,7 @@ public class HomeFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         //开始自动翻页
-        convenientBanner.startTurning(2500);
+        convenientBanner.startTurning(4000);
     }
 
 

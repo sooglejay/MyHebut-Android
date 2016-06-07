@@ -378,7 +378,7 @@
                     android:background="@color/home_color_divider"/>
 
                 <LinearLayout
-                    android:id="@+id/ll_guide"
+                    android:id="@+id/ll_history"
                     android:layout_width="0.0dip"
                     android:layout_height="fill_parent"
                     android:layout_weight="1.0"
@@ -388,7 +388,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_home_guide"
+                        android:id="@+id/tv_home_history"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/main_function_icon_margin"
@@ -400,7 +400,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/main_function_font_margin"
-                        android:text="学生服务中心"
+                        android:text="查校历"
                         android:textColor="@color/exam_text"
                         android:textSize="@dimen/main_function_font"/>
                 </LinearLayout>

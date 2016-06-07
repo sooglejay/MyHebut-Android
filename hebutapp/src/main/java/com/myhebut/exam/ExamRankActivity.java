@@ -163,6 +163,8 @@ public class ExamRankActivity extends SwipeBackActivity {
                 viewHolder.mIvRankPic.setImageResource(R.mipmap.ic_exam_rank_3);
                 viewHolder.mLlRankText.setVisibility(View.GONE);
             } else {
+                viewHolder.mIvRankPic.setVisibility(View.GONE);
+                viewHolder.mLlRankText.setVisibility(View.VISIBLE);
                 viewHolder.mTvNum.setText((i + 1) + "");
             }
 

@@ -138,6 +138,10 @@
             android:theme="@style/SwipeBackLayout">
         </activity>
         <activity
+            android:name="com.myhebut.home.HomeHistoryActivity"
+            android:theme="@style/SwipeBackLayout">
+        </activity>
+        <activity
             android:name="com.myhebut.setting.SettingPersonalActivity"
             android:theme="@style/SwipeBackLayout">
         </activity>

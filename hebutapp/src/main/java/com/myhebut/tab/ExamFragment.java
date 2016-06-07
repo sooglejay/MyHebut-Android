@@ -174,7 +174,7 @@ public class ExamFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         //开始自动翻页
-        convenientBanner.startTurning(2500);
+        convenientBanner.startTurning(4000);
     }
 
 

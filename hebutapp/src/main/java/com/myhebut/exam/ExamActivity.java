@@ -627,10 +627,6 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
             mPopupWindow.setFocusable(true);
             mPopupWindow.setOutsideTouchable(true);
         }
-        TextView textView = new TextView(this);
-        textView.setText("sdfsdf");
-        textView.setTextSize(25);
-        textView.setGravity(Gravity.CENTER);
         mPopupWindow.setContentView(cardView);
         mPopupWindow.showAtLocation(mTvQuesCount, Gravity.BOTTOM, 0, 0);
         mPopupWindow.update();
@@ -705,8 +701,10 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
         }
         // 显示考试结果页面
         showResultView();
-        // 添加到考试记录
-        addRecord();
+        // 添加到考试记录(只添加成绩大于5的记录)
+        if (score > 5){
+            addRecord();
+        }
     }
 
     private void showResultView() {
