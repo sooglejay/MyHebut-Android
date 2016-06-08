@@ -1,7 +1,15 @@
 package com.myhebut.activity;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.util.Log;
@@ -16,6 +24,12 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.igexin.sdk.PushManager;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.HttpHandler;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest;
 import com.myhebut.application.MyApplication;
 import com.myhebut.greendao.Notification;
 import com.myhebut.greendao.NotificationDao;
@@ -26,9 +40,13 @@ import com.myhebut.tab.ExamFragment;
 import com.myhebut.tab.FindFragment;
 import com.myhebut.tab.HomeFragment;
 import com.myhebut.tab.SettingFragment;
+import com.myhebut.utils.HttpUtil;
 import com.myhebut.utils.MyConstants;
 import com.myhebut.utils.SpUtil;
+import com.myhebut.utils.UrlUtil;
 import com.umeng.analytics.MobclickAgent;
+
+import java.io.File;
 
 public class MainActivity extends FragmentActivity implements MainListener {
 
@@ -58,6 +76,8 @@ public class MainActivity extends FragmentActivity implements MainListener {
 
     private Gson gson;
 
+    private ProgressDialog pBar;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,9 +90,124 @@ public class MainActivity extends FragmentActivity implements MainListener {
         MainManager manager = MainManager.getInstance();
         manager.setListener(this);
 
-
         initView();
         initData();
+        // 检测版本更新
+        new Thread() {
+            public void run() {
+                try {
+                    HttpUtils http = HttpUtil.getHttp();
+                    http.send(HttpRequest.HttpMethod.GET, UrlUtil.getVersionUrl(), new RequestCallBack<String>() {
+
+                        @Override
+                        public void onSuccess(ResponseInfo<String> responseInfo) {
+                            try {
+                                String versionStr = responseInfo.result;
+                                int versionCode = Integer.parseInt(versionStr);
+                                PackageManager packageManager = getPackageManager();
+                                PackageInfo info = packageManager.getPackageInfo(getPackageName(), 0);
+                                int nowCode = info.versionCode;
+                                // 如果有新版本则进行更新提示
+                                if (versionCode > nowCode) {
+                                    showUpdateDialog();
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(HttpException error, String msg) {
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    private void showUpdateDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("悦河工有新版本!");
+        builder.setCancelable(false);
+
+        builder.setPositiveButton("更新", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (Environment.getExternalStorageState().equals(
+                        Environment.MEDIA_MOUNTED)) {
+                    // 下载文件
+                    downFile(UrlUtil.getAppUrl());
+                } else {
+                    Toast.makeText(MainActivity.this, "SD卡不可用，请插入SD卡",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.setNegativeButton("下次再说", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.create().show();
+    }
+
+    private void downFile(String appUrl) {
+        //进度条，在下载的时候实时更新进度，提高用户友好度
+        pBar = new ProgressDialog(MainActivity.this);
+        pBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        pBar.setTitle("正在下载");
+        pBar.setMessage("请稍候...");
+        pBar.setProgress(0);
+        pBar.show();
+        // 下载apk
+        HttpUtils http = HttpUtil.getHttp();
+        HttpHandler handler = http.download(UrlUtil.getAppUrl(),
+                "/sdcard/MyHebut.apk",
+                false, // 如果目标文件存在，覆盖重新下载
+                true, // 如果从请求返回信息中获取到文件名，下载完成后自动重命名。
+                new RequestCallBack<File>() {
+
+                    @Override
+                    public void onStart() {
+                        //testTextView.setText("conn...");
+                    }
+
+                    @Override
+                    public void onLoading(long total, long current, boolean isUploading) {
+                        pBar.setMax((int) total);
+                        pBar.setProgress((int) current);
+                    }
+
+                    @Override
+                    public void onSuccess(ResponseInfo<File> responseInfo) {
+                        //testTextView.setText("downloaded:" + responseInfo.result.getPath());
+                        Toast.makeText(MainActivity.this, "下载成功",
+                                Toast.LENGTH_SHORT).show();
+                        // 安装apk
+                        installApk();
+                    }
+
+                    @Override
+                    public void onFailure(HttpException error, String msg) {
+                        Toast.makeText(MainActivity.this, "下载失败" + error,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
+    private void installApk() {
+        File file = new File("/sdcard/MyHebut.apk");
+        Intent intent = new Intent();
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setAction(android.content.Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.fromFile(file),
+                "application/vnd.android.package-archive");
+        startActivity(intent);
     }
 
     private void initData() {
@@ -105,7 +240,7 @@ public class MainActivity extends FragmentActivity implements MainListener {
             point.setVisibility(View.GONE);
         }
         // 如果用户设置直接进入考试模块,则自动进行模块跳转
-        if (SpUtil.getBoolean(this, MyConstants.ISENTEREXAM, false)){
+        if (SpUtil.getBoolean(this, MyConstants.ISENTEREXAM, false)) {
             mTabHost.setCurrentTab(2);
         }
     }

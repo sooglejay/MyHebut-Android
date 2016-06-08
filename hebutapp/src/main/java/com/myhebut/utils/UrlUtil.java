@@ -191,4 +191,11 @@ public class UrlUtil {
         return "http://www.myhebut.com/donate";
     }
 
+    public static String getVersionUrl() {
+        return URL + "/version";
+    }
+
+    public static String getAppUrl() {
+        return "http://myhebut.oss-cn-hangzhou.aliyuncs.com/download%2FMyHebut.apk";
+    }
 }

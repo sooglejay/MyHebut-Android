@@ -613,7 +613,6 @@ public class ExamActivity extends FragmentActivity implements ExamListener {
 
 
     private void showPopMenu() {
-
         cardView.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in));
         LinearLayout ll_popup = (LinearLayout) cardView.findViewById(R.id.ll_popup);
         ll_popup.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.push_bottom_in));

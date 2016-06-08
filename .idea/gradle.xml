@@ -11,7 +11,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/PullToRefresh_library" />
-            <option value="$PROJECT_DIR$/ToggleButtonLib" />
             <option value="$PROJECT_DIR$/daoexamplegenerator" />
             <option value="$PROJECT_DIR$/hebutapp" />
           </set>

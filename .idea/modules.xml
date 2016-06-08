@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyHebut.iml" filepath="$PROJECT_DIR$/MyHebut.iml" />
       <module fileurl="file://$PROJECT_DIR$/PullToRefresh_library/PullToRefresh_library.iml" filepath="$PROJECT_DIR$/PullToRefresh_library/PullToRefresh_library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ToggleButtonLib/ToggleButtonLib.iml" filepath="$PROJECT_DIR$/ToggleButtonLib/ToggleButtonLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/daoexamplegenerator/daoexamplegenerator.iml" filepath="$PROJECT_DIR$/daoexamplegenerator/daoexamplegenerator.iml" />
       <module fileurl="file://$PROJECT_DIR$/hebutapp/hebutapp.iml" filepath="$PROJECT_DIR$/hebutapp/hebutapp.iml" />
     </modules>
