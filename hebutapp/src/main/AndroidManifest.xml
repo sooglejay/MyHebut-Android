@@ -110,14 +110,6 @@
             android:theme="@style/SwipeBackLayout">
         </activity>
         <activity
-            android:name="com.myhebut.home.HomeMusicActivity"
-            android:theme="@style/SwipeBackLayout">
-        </activity>
-        <activity
-            android:name="com.myhebut.home.HomeMusicListActivity"
-            android:theme="@style/SwipeBackLayout">
-        </activity>
-        <activity
             android:name="com.myhebut.home.HomeMusicErrActivity"
             android:theme="@style/SwipeBackLayout">
         </activity>

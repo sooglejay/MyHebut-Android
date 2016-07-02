@@ -13,6 +13,8 @@ public class JsonScore implements Serializable {
 	private String errMsg;
 	/** 返回数据 */
 	private List<Term> terms;
+	/** 绩点 */
+	private double gpa;
 
 	public boolean getStatus() {
 		return status;
@@ -38,4 +40,11 @@ public class JsonScore implements Serializable {
 		this.terms = terms;
 	}
 
+	public double getGpa() {
+		return gpa;
+	}
+
+	public void setGpa(double gpa) {
+		this.gpa = gpa;
+	}
 }

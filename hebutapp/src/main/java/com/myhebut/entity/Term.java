@@ -9,6 +9,8 @@ public class Term {
 	
 	private List<Score> scores;
 
+	private double avg;
+
 	public String getTime() {
 		return time;
 	}
@@ -24,6 +26,13 @@ public class Term {
 	public void setScores(List<Score> scores) {
 		this.scores = scores;
 	}
-	
+
+	public double getAvg() {
+		return avg;
+	}
+
+	public void setAvg(double avg) {
+		this.avg = avg;
+	}
 	
 }

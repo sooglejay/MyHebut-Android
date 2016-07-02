@@ -1,8 +1,8 @@
 package com.myhebut.setting;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -35,8 +35,14 @@ public class SettingFeedbackActivity extends SwipeBackActivity {
     @ViewInject(R.id.et_setting_feedback_content)
     private EditText mEtContent;
 
+    @ViewInject(R.id.btn_setting_feedback_submit)
+    private Button mBtnSubmit;
+
     @OnClick(R.id.btn_setting_feedback_submit)
     private void submit(View view) {
+        // 提交按钮禁用(反之重复提交)
+        mBtnSubmit.setEnabled(false);
+
         MyApplication application = (MyApplication) getApplication();
         User user = application.getUser();
         int userId = user.getUserId();
@@ -52,7 +58,6 @@ public class SettingFeedbackActivity extends SwipeBackActivity {
         params.addBodyParameter("userId", userId + "");
         params.addBodyParameter("contact", contact);
         params.addBodyParameter("content", content);
-        Log.d("feedback", content);
         http.send(HttpRequest.HttpMethod.POST, UrlUtil.addFeedbackUrl(), params, new RequestCallBack<String>() {
 
             @Override
@@ -68,14 +73,17 @@ public class SettingFeedbackActivity extends SwipeBackActivity {
                     mEtContent.setText("");
                 } catch (Exception e) {
                     Toast.makeText(SettingFeedbackActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
+                } finally {
+                    // 回复提交按钮的可点击性
+                    mBtnSubmit.setEnabled(true);
                 }
-
             }
-
 
             @Override
             public void onFailure(HttpException error, String msg) {
                 Toast.makeText(SettingFeedbackActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
+                // 回复提交按钮的可点击性
+                mBtnSubmit.setEnabled(true);
             }
         });
     }

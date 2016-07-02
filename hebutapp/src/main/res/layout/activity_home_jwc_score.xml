@@ -47,13 +47,55 @@
         android:layout_height="1px"
         android:background="@color/color_divider"/>
 
-
-    <se.emilsjolander.stickylistheaders.StickyListHeadersListView
-        android:id="@+id/lv_home_score"
+    <ScrollView
+        android:id="@+id/sv_home_score"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:divider="@color/color_divider"
-        android:dividerHeight="1dp"></se.emilsjolander.stickylistheaders.StickyListHeadersListView>
+        android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="12dp">
+
+                <TextView
+                    android:id="@+id/tv_home_score_gpa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="绩点"
+                    android:textColor="@color/font_gray_darker"
+                    android:textSize="17sp"/>
+
+                <TextView
+                    android:id="@+id/tv_home_score_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="4dp"
+                    android:text="@string/score_help"
+                    android:textColor="@color/font_gray_dark"
+                    android:textSize="12sp"/>
+            </RelativeLayout>
+
+
+            <com.myhebut.classes.StickyListViewForScrollView
+                android:id="@+id/lv_home_score"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/color_divider"
+                android:dividerHeight="1dp"></com.myhebut.classes.StickyListViewForScrollView>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

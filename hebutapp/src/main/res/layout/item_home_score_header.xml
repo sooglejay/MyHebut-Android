@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:background="#fff"
@@ -17,5 +17,18 @@
         android:textColor="@color/font_gray_darker"
         android:textSize="18sp"/>
 
+    <TextView
+        android:id="@+id/tv_home_score_avg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="10dp"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/font_gray_darker"
+        android:textSize="16sp"/>
 
-</LinearLayout>
+
+</RelativeLayout>

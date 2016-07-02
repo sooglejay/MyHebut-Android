@@ -72,7 +72,7 @@ public class HomeJwcLoginActivity extends SwipeBackActivity {
                         parseCourseData(jsonData);
                     }
                 } catch(Exception e){
-                    Toast.makeText(HomeJwcLoginActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HomeJwcLoginActivity.this, "悦河工遇到未知错误,赶快联系开发者吧~", Toast.LENGTH_SHORT).show();
                 }
             }
 

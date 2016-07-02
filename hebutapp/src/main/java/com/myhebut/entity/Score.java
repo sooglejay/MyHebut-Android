@@ -4,13 +4,12 @@ public class Score {
 	
 	/** 课程 */
 	private String course;
-
 	/** 分数 */
 	private String score;
-
 	/** 学分 */
 	private String credit;
-
+	/** 课程属性 */
+	private String type;
 	/** 对应学期 */
 	private int term;
 
@@ -36,6 +35,14 @@ public class Score {
 
 	public void setCredit(String string) {
 		this.credit = string;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public int getTerm() {

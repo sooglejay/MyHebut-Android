@@ -12,7 +12,6 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 public class HomeMusicErrActivity extends SwipeBackActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

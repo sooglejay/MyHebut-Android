@@ -6,10 +6,16 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
+import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.myhebut.activity.R;
@@ -23,9 +29,10 @@ import com.myhebut.home.HomeHistoryActivity;
 import com.myhebut.home.HomeJwcLoginActivity;
 import com.myhebut.home.HomeKuaidiActivity;
 import com.myhebut.home.HomeMapActivity;
-import com.myhebut.home.HomeMusicActivity;
+import com.myhebut.home.HomeMusicErrActivity;
 import com.myhebut.home.HomeScoreActivity;
 import com.myhebut.setting.SettingFeedbackActivity;
+import com.myhebut.utils.HttpUtil;
 import com.myhebut.utils.MyConstants;
 import com.myhebut.utils.SpUtil;
 import com.myhebut.utils.UrlUtil;
@@ -92,7 +99,7 @@ public class HomeFragment extends BaseFragment {
     private void grade(View view) {
         String jsonData = SpUtil.getString(mainActivity, MyConstants.SCOREDATA, null);
         Intent intent;
-        if (jsonData != null) {
+        if (jsonData != null && jsonData.indexOf("gpa") != -1) {
             intent = new Intent(mainActivity, HomeScoreActivity.class);
         } else {
             intent = new Intent(mainActivity, HomeJwcLoginActivity.class);
@@ -146,8 +153,32 @@ public class HomeFragment extends BaseFragment {
 
     @OnClick(R.id.ll_music)
     private void music(View view) {
-        Intent intent = new Intent(mainActivity, HomeMusicActivity.class);
-        mainActivity.startActivity(intent);
+        HttpUtils http = HttpUtil.getHttp();
+        http.send(HttpRequest.HttpMethod.GET, UrlUtil.getMusisTimesUrl(), new RequestCallBack<String>() {
+
+            @Override
+            public void onSuccess(ResponseInfo<String> responseInfo) {
+                try {
+                    int times = Integer.parseInt(responseInfo.result);
+                    if (times > 0) {
+                        Intent intent = new Intent(mainActivity, WebViewActivity.class);
+                        intent.putExtra("href", UrlUtil.getMusicUrl());
+                        intent.putExtra("title", "蜜思点歌台 - 点歌");
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(mainActivity, HomeMusicErrActivity.class);
+                        startActivity(intent);
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(mainActivity, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(HttpException error, String msg) {
+                Toast.makeText(mainActivity, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @OnClick(R.id.ll_card)
@@ -251,7 +282,7 @@ public class HomeFragment extends BaseFragment {
         try {
             InputStream in = getResources().openRawResource(R.raw.motto);
             BufferedReader br = new BufferedReader(new InputStreamReader(in, "utf8"));// 注意编码
-            int num = new Random().nextInt(8);
+            int num = new Random().nextInt(27);
             String temp;
             int i = 0;
             while ((temp = br.readLine()) != null) {

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">悦河工</string>
     <string name="action_settings">Settings</string>
+    <string name="score_help"><u>绩点,加权平均计算规则?</u></string>
 
     <string name="home">&#xe676;</string>
     <string name="find">&#xe634;</string>

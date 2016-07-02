@@ -96,14 +96,9 @@ public class UrlUtil {
         return "https://jinshuju.net/f/k6SzpE";
     }
 
-    public static String getMusicListUrl() {
-        return URL + "/music";
-    }
-
     public static String getMusisTimesUrl() {
         return URL + "/getTimes";
     }
-
 
     public static String getCardUrl() {
         return "http://ecard.hebut.edu.cn:8070/";
@@ -197,5 +192,9 @@ public class UrlUtil {
 
     public static String getAppUrl() {
         return "http://myhebut.oss-cn-hangzhou.aliyuncs.com/download%2FMyHebut.apk";
+    }
+
+    public static String getScoreHelpUrl() {
+        return "http://codinghx.com/2016/07/03/%E6%82%A6%E6%B2%B3%E5%B7%A5%E5%85%B3%E4%BA%8E%E6%88%90%E7%BB%A9%E7%BB%A9%E7%82%B9%E3%80%81%E5%8A%A0%E6%9D%83%E5%B9%B3%E5%9D%87%E5%88%86%E7%9A%84%E8%AE%A1%E7%AE%97%E8%A7%84%E5%88%99/";
     }
 }
