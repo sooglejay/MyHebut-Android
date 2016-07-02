@@ -22,6 +22,10 @@ public interface MyConstants {
 
     String SCOREDATA = "scoredata";
 
+    String STUID = "stuid";
+
+    String STUPASS = "stupass";
+
     String COURSEDATA = "coursedata";
     // 是否有未读消息
     String ISREAD = "isread";

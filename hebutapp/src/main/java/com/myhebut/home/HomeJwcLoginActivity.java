@@ -59,6 +59,10 @@ public class HomeJwcLoginActivity extends SwipeBackActivity {
     private void submit(View view) {
         String stuId = mEtStuId.getText() + "";
         String stuPass = mEtStuPass.getText() + "";
+        // 保存学号密码信息
+        SpUtil.setString(this, MyConstants.STUID, stuId);
+        SpUtil.setString(this, MyConstants.STUPASS, stuPass);
+
         String authCode = mEtAuthCode.getText() + "";
         http.send(HttpRequest.HttpMethod.GET, UrlUtil.getJwcModuleUrl(stuId, stuPass, authCode, module), new RequestCallBack<String>() {
 
@@ -143,8 +147,14 @@ public class HomeJwcLoginActivity extends SwipeBackActivity {
         } else {
             mTvTitle.setText("课表查询");
         }
+        // 记住密码功能
+        String stuId = SpUtil.getString(HomeJwcLoginActivity.this, MyConstants.STUID, null);
+        String stuPass = SpUtil.getString(HomeJwcLoginActivity.this, MyConstants.STUPASS, null);
+        if (stuId != null) {
+            mEtStuId.setText(stuId);
+            mEtStuPass.setText(stuPass);
+        }
         getAuthCode();
-
     }
 
     private void getAuthCode() {
