@@ -40,14 +40,18 @@ public class SettingFeedbackActivity extends SwipeBackActivity {
 
     @OnClick(R.id.btn_setting_feedback_submit)
     private void submit(View view) {
-        // 提交按钮禁用(反之重复提交)
-        mBtnSubmit.setEnabled(false);
-
         MyApplication application = (MyApplication) getApplication();
         User user = application.getUser();
         int userId = user.getUserId();
         String contact = mEtContact.getText().toString();
         String content = mEtContent.getText().toString();
+        // 提交内容不能为空
+        if (content.equals("")){
+            Toast.makeText(SettingFeedbackActivity.this, "反馈内容不能为空!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        // 提交按钮禁用(反之重复提交)
+        mBtnSubmit.setEnabled(false);
 
         addFeedback(userId, contact, content);
     }

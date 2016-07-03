@@ -190,8 +190,8 @@ public class UrlUtil {
         return URL + "/version";
     }
 
-    public static String getAppUrl() {
-        return "http://myhebut.oss-cn-hangzhou.aliyuncs.com/download%2FMyHebut.apk";
+    public static String getAppUrl(int versionCode) {
+        return "http://myhebut.oss-cn-hangzhou.aliyuncs.com/download/MyHebut-" + versionCode + ".apk";
     }
 
     public static String getScoreHelpUrl() {

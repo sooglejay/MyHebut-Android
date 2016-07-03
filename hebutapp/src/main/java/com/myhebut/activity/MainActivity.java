@@ -109,7 +109,7 @@ public class MainActivity extends FragmentActivity implements MainListener {
                                 int nowCode = info.versionCode;
                                 // 如果有新版本则进行更新提示
                                 if (versionCode > nowCode) {
-                                    showUpdateDialog();
+                                    showUpdateDialog(versionCode);
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -127,7 +127,7 @@ public class MainActivity extends FragmentActivity implements MainListener {
         }.start();
     }
 
-    private void showUpdateDialog() {
+    private void showUpdateDialog(final int versionCode) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("悦河工有新版本!");
         builder.setCancelable(false);
@@ -139,7 +139,7 @@ public class MainActivity extends FragmentActivity implements MainListener {
                 if (Environment.getExternalStorageState().equals(
                         Environment.MEDIA_MOUNTED)) {
                     // 下载文件
-                    downFile(UrlUtil.getAppUrl());
+                    downFile(UrlUtil.getAppUrl(versionCode));
                 } else {
                     Toast.makeText(MainActivity.this, "SD卡不可用，请插入SD卡",
                             Toast.LENGTH_SHORT).show();
@@ -165,7 +165,7 @@ public class MainActivity extends FragmentActivity implements MainListener {
         pBar.show();
         // 下载apk
         HttpUtils http = HttpUtil.getHttp();
-        HttpHandler handler = http.download(UrlUtil.getAppUrl(),
+        HttpHandler handler = http.download(appUrl,
                 "/sdcard/MyHebut.apk",
                 false, // 如果目标文件存在，覆盖重新下载
                 true, // 如果从请求返回信息中获取到文件名，下载完成后自动重命名。

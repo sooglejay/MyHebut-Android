@@ -8,8 +8,8 @@ android {
         applicationId "com.myhebut.hebutapp"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 4
-        versionName "1.4"
+        versionCode 5
+        versionName "1.5"
     }
     buildTypes {
         release {

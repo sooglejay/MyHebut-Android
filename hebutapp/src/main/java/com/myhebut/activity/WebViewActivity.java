@@ -47,6 +47,8 @@ public class WebViewActivity extends SwipeBackActivity {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setAllowFileAccess(true);
         webSettings.setDomStorageEnabled(true);//允许DCOM
+        webSettings.setBuiltInZoomControls(true); // 显示放大缩小 controler
+        webSettings.setSupportZoom(true); // 可以缩放
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(href);
         Log.d("href",href);
