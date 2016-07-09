@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -18,6 +19,7 @@ import com.lidroid.xutils.http.client.HttpRequest;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.myhebut.activity.R;
 import com.myhebut.utils.HttpUtil;
+import com.myhebut.utils.StrUtil;
 import com.myhebut.utils.UrlUtil;
 import com.umeng.analytics.MobclickAgent;
 
@@ -32,11 +34,10 @@ public class FindWbContentActivity extends SwipeBackActivity {
     @ViewInject(R.id.tv_find_jwc_content)
     private TextView mTvContent;
 
-    @ViewInject(R.id.ll_find_wb_waiting)
-    private LinearLayout mLlWaiting;
-
     @ViewInject(R.id.ll_find_wb_content)
     private LinearLayout mLlContent;
+
+    private KProgressHUD kProgressHUD;
 
 
     @Override
@@ -67,7 +68,15 @@ public class FindWbContentActivity extends SwipeBackActivity {
             mTvTitle.setText("失物招领信息搜索结果");
             targetHref = href;
         }
-
+        // 显示等待信息
+        kProgressHUD = KProgressHUD.create(FindWbContentActivity.this);
+        kProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel(StrUtil.waitLable)
+                .setDetailsLabel(StrUtil.searchDetails)
+                .setCancellable(true)
+                .setAnimationSpeed(2)
+                .setDimAmount(0.5f)
+                .show();
 
         HttpUtils http = HttpUtil.getHttp();
         http.send(HttpRequest.HttpMethod.GET, targetHref, new RequestCallBack<String>() {
@@ -76,19 +85,20 @@ public class FindWbContentActivity extends SwipeBackActivity {
             public void onSuccess(ResponseInfo<String> responseInfo) {
                 try{
                     String jsonData = responseInfo.result;
-                    // 隐藏加载画面,显示内容
-                    mLlWaiting.setVisibility(View.GONE);
-                    mLlContent.setVisibility(View.VISIBLE);
+                    // 设置显示内容
                     mTvContent.setText(Html.fromHtml("<br>" + jsonData));
                     // 超链接跳转必须设置该方法
                     mTvContent.setMovementMethod(LinkMovementMethod.getInstance());
                 } catch(Exception e){
                     Toast.makeText(FindWbContentActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
+                } finally {
+                    kProgressHUD.dismiss();
                 }
             }
 
             @Override
             public void onFailure(HttpException error, String msg) {
+                kProgressHUD.dismiss();
                 Toast.makeText(FindWbContentActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
             }
         });

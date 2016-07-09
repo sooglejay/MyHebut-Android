@@ -51,6 +51,9 @@ public class HomeScoreActivity extends SwipeBackActivity {
     @ViewInject(R.id.tv_home_score_gpa)
     private TextView mTvGPA;
 
+    @ViewInject(R.id.tv_home_score_credit)
+    private TextView mTvCredit;
+
     @OnClick(R.id.tv_home_score_refresh)
     private void refresh(View view) {
         Intent intent = new Intent(HomeScoreActivity.this, HomeJwcLoginActivity.class);
@@ -94,6 +97,8 @@ public class HomeScoreActivity extends SwipeBackActivity {
         JsonScore jsonScore = gson.fromJson(jsonData, JsonScore.class);
 
         mTvGPA.setText("绩点:" + jsonScore.getGpa() + "(仅供参考)");
+        mTvCredit.setText("已修读课程总学分:" + jsonScore.getCredit());
+
         List<Term> terms = jsonScore.getTerms();
         // 提取出terms中的所有成绩并设置每个成绩对应的学期
         List<Score> scores = new ArrayList<>();

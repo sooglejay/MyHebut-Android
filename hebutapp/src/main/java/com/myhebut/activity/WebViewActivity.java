@@ -2,15 +2,16 @@ package com.myhebut.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.myhebut.utils.StrUtil;
 import com.umeng.analytics.MobclickAgent;
 
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
@@ -23,6 +24,8 @@ public class WebViewActivity extends SwipeBackActivity {
 
     @ViewInject(R.id.tv_webview_title)
     private TextView mTvTitle;
+
+    private KProgressHUD kProgressHUD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,15 @@ public class WebViewActivity extends SwipeBackActivity {
         Intent intent = getIntent();
         String href = intent.getStringExtra("href");
         String title = intent.getStringExtra("title");
+        // 显示等待信息
+        kProgressHUD = KProgressHUD.create(WebViewActivity.this);
+        kProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel(StrUtil.waitLable)
+                .setDetailsLabel(StrUtil.waitDetails)
+                .setCancellable(true)
+                .setAnimationSpeed(2)
+                .setDimAmount(0.5f)
+                .show();
         // 设置webview
         mTvTitle.setText(title);
         WebSettings webSettings = webView.getSettings();
@@ -49,9 +61,16 @@ public class WebViewActivity extends SwipeBackActivity {
         webSettings.setDomStorageEnabled(true);//允许DCOM
         webSettings.setBuiltInZoomControls(true); // 显示放大缩小 controler
         webSettings.setSupportZoom(true); // 可以缩放
-        webView.setWebViewClient(new WebViewClient());
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                // 隐藏等待信息
+                kProgressHUD.dismiss();
+                super.onPageFinished(view, url);
+            }
+        });
+        // 加载url
         webView.loadUrl(href);
-        Log.d("href",href);
     }
 
     public void back(View view) {

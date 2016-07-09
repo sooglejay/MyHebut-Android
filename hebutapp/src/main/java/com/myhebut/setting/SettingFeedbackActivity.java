@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -21,6 +22,7 @@ import com.myhebut.application.MyApplication;
 import com.myhebut.entity.JsonCommon;
 import com.myhebut.entity.User;
 import com.myhebut.utils.HttpUtil;
+import com.myhebut.utils.StrUtil;
 import com.myhebut.utils.UrlUtil;
 import com.umeng.analytics.MobclickAgent;
 
@@ -38,6 +40,8 @@ public class SettingFeedbackActivity extends SwipeBackActivity {
     @ViewInject(R.id.btn_setting_feedback_submit)
     private Button mBtnSubmit;
 
+    private KProgressHUD kProgressHUD;
+
     @OnClick(R.id.btn_setting_feedback_submit)
     private void submit(View view) {
         MyApplication application = (MyApplication) getApplication();
@@ -52,6 +56,15 @@ public class SettingFeedbackActivity extends SwipeBackActivity {
         }
         // 提交按钮禁用(反之重复提交)
         mBtnSubmit.setEnabled(false);
+        // 显示等待信息
+        kProgressHUD = KProgressHUD.create(SettingFeedbackActivity.this);
+        kProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                    .setLabel(StrUtil.waitLable)
+                    .setDetailsLabel(StrUtil.submitDetails)
+                    .setCancellable(true)
+                    .setAnimationSpeed(2)
+                    .setDimAmount(0.5f)
+                    .show();
 
         addFeedback(userId, contact, content);
     }
@@ -80,14 +93,18 @@ public class SettingFeedbackActivity extends SwipeBackActivity {
                 } finally {
                     // 回复提交按钮的可点击性
                     mBtnSubmit.setEnabled(true);
+                    // 隐藏ProgressHUD
+                    kProgressHUD.dismiss();
                 }
             }
 
             @Override
             public void onFailure(HttpException error, String msg) {
-                Toast.makeText(SettingFeedbackActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
                 // 回复提交按钮的可点击性
                 mBtnSubmit.setEnabled(true);
+                // 隐藏ProgressHUD
+                kProgressHUD.dismiss();
+                Toast.makeText(SettingFeedbackActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -29,6 +30,7 @@ import com.myhebut.entity.User;
 import com.myhebut.utils.HttpUtil;
 import com.myhebut.utils.MyConstants;
 import com.myhebut.utils.SpUtil;
+import com.myhebut.utils.StrUtil;
 import com.myhebut.utils.UrlUtil;
 import com.umeng.analytics.MobclickAgent;
 
@@ -72,10 +74,21 @@ public class LoginActivity extends Activity {
 
     private MyApplication application;
 
+    private KProgressHUD kProgressHUD;
+
     @OnClick(R.id.btn_login)
     private void login(View view) {
         String userName = mEtLoginUserName.getText().toString();
         String userPass = mEtLoginUserPass.getText().toString();
+        // 显示等待信息
+        kProgressHUD = KProgressHUD.create(LoginActivity.this);
+        kProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel(StrUtil.waitLable)
+                .setDetailsLabel(StrUtil.loginDetails)
+                .setCancellable(true)
+                .setAnimationSpeed(2)
+                .setDimAmount(0.5f)
+                .show();
 
         check(userName, userPass);
     }
@@ -108,6 +121,16 @@ public class LoginActivity extends Activity {
             if (Pattern.matches(".{6,16}", userPass) && Pattern.matches(".{6,16}", confirmPass)) {
                 if (userPass.equals(confirmPass)) {
                     if (Pattern.matches("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$", email)) {
+                        // 显示等待信息
+                        kProgressHUD = KProgressHUD.create(LoginActivity.this);
+                        kProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                                .setLabel(StrUtil.waitLable)
+                                .setDetailsLabel(StrUtil.registerDetails)
+                                .setCancellable(true)
+                                .setAnimationSpeed(2)
+                                .setDimAmount(0.5f)
+                                .show();
+
                         addUser(userName, userPass, email);
                     } else {
                         Toast.makeText(LoginActivity.this,
@@ -163,11 +186,14 @@ public class LoginActivity extends Activity {
                         } catch (Exception e) {
                             Toast.makeText(LoginActivity.this, "连接失败,请检查网络设置",
                                     Toast.LENGTH_SHORT).show();
+                        } finally {
+                            kProgressHUD.dismiss();
                         }
                     }
 
                     @Override
                     public void onFailure(HttpException error, String msg) {
+                        kProgressHUD.dismiss();
                         Toast.makeText(LoginActivity.this, "连接失败,请检查网络设置",
                                 Toast.LENGTH_SHORT).show();
                     }
@@ -201,11 +227,14 @@ public class LoginActivity extends Activity {
                         } catch (Exception e) {
                             Toast.makeText(LoginActivity.this, "连接失败,请检查网络设置",
                                     Toast.LENGTH_SHORT).show();
+                        } finally {
+                            kProgressHUD.dismiss();
                         }
                     }
 
                     @Override
                     public void onFailure(HttpException error, String msg) {
+                        kProgressHUD.dismiss();
                         Toast.makeText(LoginActivity.this, "连接失败,请检查网络设置",
                                 Toast.LENGTH_SHORT).show();
                     }

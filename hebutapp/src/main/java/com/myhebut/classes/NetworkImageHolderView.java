@@ -23,6 +23,8 @@ public class NetworkImageHolderView implements Holder<String> {
     public void UpdateUI(Context context, final int position, String data) {
 
         Picasso.with(context).load(data)
-                .error(R.mipmap.pic_banner_default).into(imageView);
+                .placeholder(R.mipmap.pic_banner_default)
+                .error(R.mipmap.pic_banner_default)
+                .into(imageView);
     }
 }

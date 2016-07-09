@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -25,6 +26,7 @@ import com.myhebut.entity.User;
 import com.myhebut.utils.HttpUtil;
 import com.myhebut.utils.MyConstants;
 import com.myhebut.utils.SpUtil;
+import com.myhebut.utils.StrUtil;
 import com.myhebut.utils.UrlUtil;
 import com.squareup.picasso.Picasso;
 import com.umeng.analytics.MobclickAgent;
@@ -55,6 +57,8 @@ public class HomeJwcLoginActivity extends SwipeBackActivity {
 
     private String module;
 
+    private KProgressHUD kProgressHUD;
+
     @OnClick(R.id.btn_home_jwc_submit)
     private void submit(View view) {
         String stuId = mEtStuId.getText() + "";
@@ -64,6 +68,16 @@ public class HomeJwcLoginActivity extends SwipeBackActivity {
         SpUtil.setString(this, MyConstants.STUPASS, stuPass);
 
         String authCode = mEtAuthCode.getText() + "";
+        // 显示等待信息
+        kProgressHUD = KProgressHUD.create(HomeJwcLoginActivity.this);
+        kProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel(StrUtil.waitLable)
+                .setDetailsLabel(StrUtil.waitDetails)
+                .setCancellable(true)
+                .setAnimationSpeed(2)
+                .setDimAmount(0.5f)
+                .show();
+
         http.send(HttpRequest.HttpMethod.GET, UrlUtil.getJwcModuleUrl(stuId, stuPass, authCode, module), new RequestCallBack<String>() {
 
             @Override
@@ -77,11 +91,14 @@ public class HomeJwcLoginActivity extends SwipeBackActivity {
                     }
                 } catch(Exception e){
                     Toast.makeText(HomeJwcLoginActivity.this, "悦河工遇到未知错误,赶快联系开发者吧~", Toast.LENGTH_SHORT).show();
+                } finally {
+                    kProgressHUD.dismiss();
                 }
             }
 
             @Override
             public void onFailure(HttpException error, String msg) {
+                kProgressHUD.dismiss();
                 Toast.makeText(HomeJwcLoginActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
             }
         });
@@ -164,8 +181,10 @@ public class HomeJwcLoginActivity extends SwipeBackActivity {
             public void onSuccess(ResponseInfo<String> responseInfo) {
                 // 清理缓存
                 Picasso.with(getApplicationContext()).invalidate(UrlUtil.getJwcAuthCodeUrl(userId));
-                // TODO 默认图片
+                // 显示验证码图片
                 Picasso.with(getApplicationContext()).load(UrlUtil.getJwcAuthCodeUrl(userId))
+                        .placeholder(R.mipmap.pic_authcode_default)
+                        .error(R.mipmap.pic_authcode_error)
                         .into(mIvAuthCode);
             }
 

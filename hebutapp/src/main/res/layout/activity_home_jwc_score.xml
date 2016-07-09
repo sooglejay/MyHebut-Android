@@ -59,7 +59,7 @@
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
@@ -83,6 +83,17 @@
                     android:text="@string/score_help"
                     android:textColor="@color/font_gray_dark"
                     android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/tv_home_score_credit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_home_score_gpa"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:text="已修读课程总学分:"
+                    android:textColor="@color/font_gray_darker"
+                    android:textSize="17sp"/>
             </RelativeLayout>
 
 

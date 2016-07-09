@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -17,6 +18,7 @@ import com.lidroid.xutils.http.client.HttpRequest;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.myhebut.activity.R;
 import com.myhebut.utils.HttpUtil;
+import com.myhebut.utils.StrUtil;
 import com.myhebut.utils.UrlUtil;
 import com.umeng.analytics.MobclickAgent;
 
@@ -27,6 +29,8 @@ public class FindJwcContentActivity extends SwipeBackActivity {
 
     @ViewInject(R.id.tv_find_jwc_content)
     private TextView mTvContent;
+
+    private KProgressHUD kProgressHUD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,24 +48,36 @@ public class FindJwcContentActivity extends SwipeBackActivity {
 
         Intent intent = getIntent();
         String newsId = intent.getStringExtra("newsId");
+        // 显示等待信息
+        kProgressHUD = KProgressHUD.create(FindJwcContentActivity.this);
+        kProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel(StrUtil.waitLable)
+                .setDetailsLabel(StrUtil.searchDetails)
+                .setCancellable(true)
+                .setAnimationSpeed(2)
+                .setDimAmount(0.5f)
+                .show();
 
         HttpUtils http = HttpUtil.getHttp();
         http.send(HttpRequest.HttpMethod.GET, UrlUtil.getJwcItemUrl(newsId), new RequestCallBack<String>() {
 
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
-                try{
+                try {
                     String jsonData = responseInfo.result;
                     mTvContent.setText(Html.fromHtml("<br>" + jsonData));
                     // 超链接跳转必须设置该方法
                     mTvContent.setMovementMethod(LinkMovementMethod.getInstance());
-                } catch(Exception e){
+                } catch (Exception e) {
                     Toast.makeText(FindJwcContentActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
+                } finally {
+                    kProgressHUD.dismiss();
                 }
             }
 
             @Override
             public void onFailure(HttpException error, String msg) {
+                kProgressHUD.dismiss();
                 Toast.makeText(FindJwcContentActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
             }
         });

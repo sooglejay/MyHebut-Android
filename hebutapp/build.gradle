@@ -8,8 +8,8 @@ android {
         applicationId "com.myhebut.hebutapp"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 5
-        versionName "1.5"
+        versionCode 6
+        versionName "1.5.1"
     }
     buildTypes {
         release {
@@ -57,4 +57,5 @@ dependencies {
     compile files('libs/GetuiSDK2.8.1.0.jar')
     compile 'de.greenrobot:greendao:2.1.0'
     compile 'se.emilsjolander:stickylistheaders:2.7.0'
+    compile 'com.kaopiz:kprogresshud:1.0.5'
 }
