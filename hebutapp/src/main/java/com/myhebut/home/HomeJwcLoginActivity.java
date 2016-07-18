@@ -59,6 +59,11 @@ public class HomeJwcLoginActivity extends SwipeBackActivity {
 
     private KProgressHUD kProgressHUD;
 
+    @OnClick(R.id.iv_home_jwc_authCode)
+    private void refresh(View view){
+        getAuthCode();
+    }
+
     @OnClick(R.id.btn_home_jwc_submit)
     private void submit(View view) {
         String stuId = mEtStuId.getText() + "";

@@ -2,7 +2,8 @@ package com.myhebut.utils;
 
 public class UrlUtil {
 
-    private static String URL = "http://api.myhebut.com";
+//    private static String URL = "http://codinghx.wicp.io/";
+    private static String URL = "http://api.myhebut.com/";
 
     public static String getLoginUrl() {
         return URL + "/login";
@@ -134,6 +135,14 @@ public class UrlUtil {
 
     public static String getMapUrlOflf() {
         return "http://map.baidu.com/mobile/webapp/index/streetview/ss_id=5e662776d5326f19a1046457&ss_panoType=inter&ss_heading=240.91941101449277&ss_pitch=-11.73913043478261?qq-pf-to=pcqq.c2c";
+    }
+
+    public static String getMapUrlOfbcNew() {
+        return "http://720yun.com/t/a5424wbgaur?pano_id=87664";
+    }
+
+    public static String getMapUrlOfhqNew() {
+        return "http://720yun.com/t/eca20arOyur?pano_id=590984&from=singlemessage&isappinstalled=1";
     }
 
     public static String getJwcAuthCode(int userId) {

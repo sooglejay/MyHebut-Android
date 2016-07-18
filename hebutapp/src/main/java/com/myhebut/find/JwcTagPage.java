@@ -69,10 +69,8 @@ public class JwcTagPage extends BaseTagPage {
         mPullRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // TODO 第一个item的position值为1??
                 Office office = offices.get(position - 1);
                 Intent intent = new Intent(mainActivity, FindJwcContentActivity.class);
-                Log.d("find", "position:" + position + ",newsId:" + office.getNewsId());
                 intent.putExtra("newsId", office.getNewsId());
                 mainActivity.startActivity(intent);
             }

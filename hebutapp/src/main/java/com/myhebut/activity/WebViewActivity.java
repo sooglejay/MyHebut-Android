@@ -87,5 +87,7 @@ public class WebViewActivity extends SwipeBackActivity {
     public void onPause() {
         super.onPause();
         MobclickAgent.onPause(this);
+        // 解决关闭webview后还有声音的问题
+        webView.reload();
     }
 }

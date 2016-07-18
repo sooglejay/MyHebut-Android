@@ -41,120 +41,14 @@
         android:layout_height="1.0px"
         android:background="@color/color_divider"/>
 
-    <TextView
-        android:id="@+id/tv_home_map_beichen"
+    <ListView
+        android:id="@+id/lv_home_map"
         android:layout_width="fill_parent"
-        android:layout_height="42.0dip"
+        android:layout_height="wrap_content"
         android:background="#ffffffff"
-        android:drawableLeft="@drawable/point_blue"
-        android:drawablePadding="10.0dip"
-        android:gravity="center_vertical"
-        android:paddingLeft="10.0dip"
-        android:text="  北辰校区"
-        android:textColor="#ff434343"
-        android:textSize="14.0sp"/>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:layout_marginBottom="8dp"
-        android:background="@color/color_divider"/>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:background="@color/color_divider"/>
-
-    <TextView
-        android:id="@+id/tv_home_map_dongyuan"
-        android:layout_width="fill_parent"
-        android:layout_height="42.0dip"
-        android:background="#ffffffff"
-        android:drawableLeft="@drawable/point_green"
-        android:drawablePadding="10.0dip"
-        android:gravity="center_vertical"
-        android:paddingLeft="10.0dip"
-        android:text="  红桥校区(东院)"
-        android:textColor="#ff434343"
-        android:textSize="14.0sp"/>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:layout_marginBottom="8dp"
-        android:background="@color/color_divider"/>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:background="@color/color_divider"/>
-
-    <TextView
-        android:id="@+id/tv_home_map_nanyuan"
-        android:layout_width="fill_parent"
-        android:layout_height="42.0dip"
-        android:background="#ffffffff"
-        android:drawableLeft="@drawable/point_purple"
-        android:drawablePadding="10.0dip"
-        android:gravity="center_vertical"
-        android:paddingLeft="10.0dip"
-        android:text="  红桥校区(南院)"
-        android:textColor="#ff434343"
-        android:textSize="14.0sp"/>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:layout_marginBottom="8dp"
-        android:background="@color/color_divider"/>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:background="@color/color_divider"/>
+        android:cacheColorHint="#00000000"
+        android:divider="@color/main_bg"
+        android:dividerHeight="8dp"/>
 
 
-    <TextView
-        android:id="@+id/tv_home_map_beiyuan"
-        android:layout_width="fill_parent"
-        android:layout_height="42.0dip"
-        android:background="#ffffffff"
-        android:drawableLeft="@drawable/point_orange"
-        android:drawablePadding="10.0dip"
-        android:gravity="center_vertical"
-        android:paddingLeft="10.0dip"
-        android:text="  红桥校区(北院)"
-        android:textColor="#ff434343"
-        android:textSize="14.0sp"/>
-
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:layout_marginBottom="8dp"
-        android:background="@color/color_divider"/>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:background="@color/color_divider"/>
-
-
-    <TextView
-        android:id="@+id/tv_home_map_langfang"
-        android:layout_width="fill_parent"
-        android:layout_height="42.0dip"
-        android:background="#ffffffff"
-        android:drawableLeft="@drawable/point_red"
-        android:drawablePadding="10.0dip"
-        android:gravity="center_vertical"
-        android:paddingLeft="10.0dip"
-        android:text="  廊坊校区"
-        android:textColor="#ff434343"
-        android:textSize="14.0sp"/>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:background="@color/color_divider"/>
 </LinearLayout>

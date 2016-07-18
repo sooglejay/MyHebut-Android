@@ -6,7 +6,6 @@
     android:background="#ffffffff"
     android:orientation="vertical">
 
-
     <RelativeLayout
         android:id="@+id/rl_home_jwc_title"
         android:layout_width="fill_parent"
@@ -70,7 +69,6 @@
                 android:textColor="#ff373737"
                 android:textSize="15.0sp"/>
 
-
             <EditText
                 android:id="@+id/et_home_jwc_stuId"
                 android:layout_width="fill_parent"
@@ -107,7 +105,6 @@
                 android:text="密码"
                 android:textColor="#ff373737"
                 android:textSize="15.0sp"/>
-
 
             <EditText
                 android:id="@+id/et_home_jwc_stuPass"
@@ -146,7 +143,6 @@
                 android:textColor="#ff373737"
                 android:textSize="15.0sp"/>
 
-
             <EditText
                 android:id="@+id/et_home_jwc_authCode"
                 android:layout_width="fill_parent"
@@ -156,7 +152,6 @@
                 android:layout_marginLeft="102.0dip"
                 android:background="@null"
                 android:hint="请输入验证码"
-                android:inputType="textPassword"
                 android:maxLength="20"
                 android:textColor="#ff000000"
                 android:textSize="15.0sp"/>
@@ -182,8 +177,6 @@
             android:textColor="#ffffffff"
             android:textSize="17.0sp"/>
 
-
     </LinearLayout>
-
 
 </RelativeLayout>

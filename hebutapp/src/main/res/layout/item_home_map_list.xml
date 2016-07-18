@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/color_divider"/>
+
+    <TextView
+        android:id="@+id/tv_home_map_location"
+        android:layout_width="fill_parent"
+        android:layout_height="42.0dip"
+        android:background="#ffffffff"
+        android:drawableLeft="@drawable/point_green"
+        android:drawablePadding="20.0dip"
+        android:gravity="center_vertical"
+        android:paddingLeft="12.0dip"
+        android:text="  红桥校区(东院)"
+        android:textColor="#ff434343"
+        android:textSize="14.0sp"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:background="@color/color_divider"/>
+
+</LinearLayout>
