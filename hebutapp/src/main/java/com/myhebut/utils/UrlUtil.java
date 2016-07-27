@@ -9,6 +9,10 @@ public class UrlUtil {
         return URL + "/login";
     }
 
+    public static String getForgetPwdUrl() {
+        return URL + "/forgetPwd";
+    }
+
     public static String getRegisterUrl() {
         return URL + "/register";
     }
@@ -106,11 +110,11 @@ public class UrlUtil {
     }
 
     public static String getCetUrl() {
-        return "http://cet.yunban.com/?plg_nld=1&plg_uin=1&plg_auth=1&plg_nld=1&plg_usr=1&plg_vkey=1&plg_dev=1";
+        return "http://cet.redrock-team.com/";
     }
 
     public static String getGuideUrl() {
-        return "http://qq.campusplus.com/hebut/service-guide.jsp;jsessionid=016A8737B565F9F0B84ADBADD7749C1C-n1?plg_nld=1&plg_uin=1&plg_auth=1&plg_nld=1&plg_usr=1&plg_vkey=1&plg_dev=1";
+        return "http://mp.weixin.qq.com/s?__biz=MzIxNDA1NzY5Mw==&mid=100000015&idx=1&sn=b5f9d3e0a243bdc4e06bf545b342ef3b";
     }
 
     public static String getBusUrl(int bus) {

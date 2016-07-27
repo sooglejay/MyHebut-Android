@@ -392,7 +392,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/main_function_icon_margin"
-                        android:text="@string/guide"
+                        android:text="@string/history"
                         android:textColor="@color/function_green"
                         android:textSize="@dimen/main_function_icon"/>
 
@@ -412,7 +412,7 @@
 
 
                 <LinearLayout
-                    android:id="@+id/ll_more"
+                    android:id="@+id/ll_guide"
                     android:layout_width="0.0dip"
                     android:layout_height="fill_parent"
                     android:layout_weight="1.0"
@@ -422,13 +422,21 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_home_more"
+                        android:id="@+id/tv_home_guide"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/main_function_icon_margin"
-                        android:text="@string/more"
-                        android:textColor="@color/home_color_divider"
-                        android:textSize="18sp"/>
+                        android:text="@string/guide"
+                        android:textColor="@color/function_red"
+                        android:textSize="@dimen/main_function_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/main_function_font_margin"
+                        android:text="新生指南"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
 
                 </LinearLayout>
 

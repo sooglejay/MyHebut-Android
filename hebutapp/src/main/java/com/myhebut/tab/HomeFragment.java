@@ -76,12 +76,14 @@ public class HomeFragment extends BaseFragment {
     private TextView mTvXiala;
     @ViewInject(R.id.tv_home_kuaidi)
     private TextView mTvKuaidi;
-    @ViewInject(R.id.tv_home_more)
-    private TextView mTvMore;
+//    @ViewInject(R.id.tv_home_more)
+//    private TextView mTvMore;
     @ViewInject(R.id.tv_home_cet)
     private TextView mTvCet;
     @ViewInject(R.id.tv_home_history)
     private TextView mTvHistory;
+    @ViewInject(R.id.tv_home_guide)
+    private TextView mTvGuide;
     @ViewInject(R.id.tv_home_motto)
     private TextView mTvMotto;
 
@@ -204,8 +206,16 @@ public class HomeFragment extends BaseFragment {
     }
 
     @OnClick(R.id.ll_history)
-    private void guide(View view) {
+    private void history(View view) {
         Intent intent = new Intent(mainActivity, HomeHistoryActivity.class);
+        mainActivity.startActivity(intent);
+    }
+
+    @OnClick(R.id.ll_guide)
+    private void guide(View view) {
+        Intent intent = new Intent(mainActivity, WebViewActivity.class);
+        intent.putExtra("href", UrlUtil.getGuideUrl());
+        intent.putExtra("title", "新生指南");
         mainActivity.startActivity(intent);
     }
 
@@ -249,10 +259,12 @@ public class HomeFragment extends BaseFragment {
         mTvXiala.setTypeface(iconfont);
         iconfont = Typeface.createFromAsset(mainActivity.getAssets(), "more.ttf");
         mTvCard.setTypeface(iconfont);
-        mTvMore.setTypeface(iconfont);
+//        mTvMore.setTypeface(iconfont);
         iconfont = Typeface.createFromAsset(mainActivity.getAssets(), "function_add.ttf");
         mTvKuaidi.setTypeface(iconfont);
         mTvCet.setTypeface(iconfont);
+        mTvGuide.setTypeface(iconfont);
+        iconfont = Typeface.createFromAsset(mainActivity.getAssets(), "history.ttf");
         mTvHistory.setTypeface(iconfont);
     }
 

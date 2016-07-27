@@ -61,6 +61,10 @@ public class WebViewActivity extends SwipeBackActivity {
         webSettings.setDomStorageEnabled(true);//允许DCOM
         webSettings.setBuiltInZoomControls(true); // 显示放大缩小 controler
         webSettings.setSupportZoom(true); // 可以缩放
+        // TODO 四六级页面加载有问题
+        if ("查四六级".equals(title)){
+            kProgressHUD.dismiss();
+        }
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
