@@ -1,6 +1,6 @@
 # 悦河工-全方位校园学习生活应用
 ## 效果图
-![效果图](http://myhebut.oss-cn-hangzhou.aliyuncs.com/github%2Fmyhebutapp.gif "效果图")
+![效果图](http://cdn.myhebut.com/github%2Fmyhebutapp.gif "效果图")
 
 ## app主要功能
 1. 首页模块

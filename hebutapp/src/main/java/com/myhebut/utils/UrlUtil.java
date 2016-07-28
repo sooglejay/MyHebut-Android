@@ -90,7 +90,7 @@ public class UrlUtil {
     }
 
     public static String getAvatarUrl(String avatar) {
-        return "http://myhebut.oss-cn-hangzhou.aliyuncs.com/touxiang%2F" + avatar + ".jpg";
+        return "http://cdn.myhebut.com/touxiang%2F" + avatar + ".jpg";
     }
 
     public static String getLogoutUrl() {
@@ -154,7 +154,7 @@ public class UrlUtil {
     }
 
     public static String getJwcAuthCodeUrl(int userId) {
-        return "http://myhebut.oss-cn-hangzhou.aliyuncs.com/yzm%2F" + userId + ".png";
+        return "http://cdn.myhebut.com/yzm%2F" + userId + ".png";
     }
 
     public static String getJwcModuleUrl(String stuId, String stuPass, String authCode,String module) {
