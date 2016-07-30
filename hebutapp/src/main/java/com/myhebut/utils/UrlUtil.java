@@ -5,6 +5,10 @@ public class UrlUtil {
 //    private static String URL = "http://codinghx.wicp.io/";
     private static String URL = "http://api.myhebut.com/";
 
+    public static String getAppUrl() {
+        return "http://www.myhebut.com/";
+    }
+
     public static String getLoginUrl() {
         return URL + "/login";
     }
@@ -191,8 +195,8 @@ public class UrlUtil {
         return URL + "/notification";
     }
 
-    public static String getDownloadUrl() {
-        return "http://www.myhebut.com/download";
+    public static String getAdvertiseUrl() {
+        return "http://mp.weixin.qq.com/s?__biz=MzIxNDA1NzY5Mw==&mid=100000008&idx=1&sn=b047a9133158f172c8c502df23c81dd8";
     }
 
     public static String getDonateUrl() {

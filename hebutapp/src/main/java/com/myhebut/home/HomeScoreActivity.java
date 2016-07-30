@@ -167,7 +167,6 @@ public class HomeScoreActivity extends SwipeBackActivity {
 
             holder.mTvCourse.setText(scores.get(position).getCourse());
             String credit = scores.get(position).getCredit();
-            Log.d("credit", credit);
             if (credit.equals(" ")){
                 holder.mTvCredit.setText("");
             } else {

@@ -172,7 +172,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rl_setting_download"
+        android:id="@+id/rl_setting_advertise"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/setting_item_height"
         android:background="@drawable/item_selector"
@@ -190,7 +190,7 @@
             android:layout_height="fill_parent"
             android:layout_marginLeft="45dp"
             android:gravity="center_vertical"
-            android:text="源码下载"
+            android:text="宣传合作"
             android:textColor="@color/font_dark_2"
             android:textSize="14dp"/>
 

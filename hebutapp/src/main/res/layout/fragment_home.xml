@@ -495,23 +495,125 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_marginTop="10dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="加入悦河工使用交流QQ群 461286050"
-                    android:textSize="13sp"/>
+                <LinearLayout
+                    android:id="@+id/ll_share_wechat"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="在这里,你可以尽情吐槽悦河工,也可以说出你想要的功能."
-                    android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:drawableTop="@mipmap/ic_share_wechat"
+                        android:gravity="center"
+                        android:text="微信"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_share_friend"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:drawableTop="@mipmap/ic_share_friend"
+                        android:gravity="center"
+                        android:text="朋友圈"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_share_weibo"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:drawableTop="@mipmap/ic_share_weibo"
+                        android:gravity="center"
+                        android:text="微博"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_share_qq"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:drawableTop="@mipmap/ic_share_qq"
+                        android:gravity="center"
+                        android:text="qq"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_share_qzone"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:drawableTop="@mipmap/ic_share_qzone"
+                        android:gravity="center"
+                        android:text="空间"
+                        android:textColor="@color/exam_text"
+                        android:textSize="@dimen/main_function_font"/>
+                </LinearLayout>
             </LinearLayout>
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="20dp"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:gravity="center"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="加入悦河工使用交流QQ群 461286050"-->
+                    <!--android:textSize="13sp"/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:text="在这里,你可以尽情吐槽悦河工,也可以说出你想要的功能."-->
+                    <!--android:textSize="13sp"/>-->
+            <!--</LinearLayout>-->
 
         </LinearLayout>
     </ScrollView>
@@ -529,7 +631,6 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="9dp"
-            android:onClick="feedback"
             android:text="@string/advice"
             android:textColor="#ffffff"
             android:textSize="20.0sp"/>
@@ -541,7 +642,6 @@
             android:layout_marginLeft="4dp"
             android:layout_marginTop="11dp"
             android:layout_toRightOf="@id/tv_home_feedback_icon"
-            android:onClick="feedback"
             android:text="反馈"
             android:textColor="#ffffff"
             android:textSize="14.0sp"/>
@@ -556,6 +656,17 @@
             android:textColor="#ffffff"
             android:textSize="20.0sp"
             android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_home_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="14dp"
+            android:layout_marginTop="13dp"
+            android:layout_alignParentRight="true"
+            android:text="@string/share"
+            android:textColor="#ffffff"
+            android:textSize="20.0sp"/>
 
         <TextView
             android:id="@+id/tv_home_motto"
@@ -573,4 +684,6 @@
             android:textStyle="italic"/>
 
     </RelativeLayout>
+
+
 </RelativeLayout>

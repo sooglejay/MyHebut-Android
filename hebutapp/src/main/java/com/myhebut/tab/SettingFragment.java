@@ -52,11 +52,11 @@ public class SettingFragment extends BaseFragment implements SettingListener {
         startActivity(intent);
     }
 
-    @OnClick(R.id.rl_setting_download)
-    private void download(View view) {
+    @OnClick(R.id.rl_setting_advertise)
+    private void advertise(View view) {
         Intent intent = new Intent(mainActivity, WebViewActivity.class);
-        intent.putExtra("href", UrlUtil.getDownloadUrl());
-        intent.putExtra("title", "源码下载");
+        intent.putExtra("href", UrlUtil.getAdvertiseUrl());
+        intent.putExtra("title", "宣传合作");
         mainActivity.startActivity(intent);
     }
 
@@ -89,6 +89,7 @@ public class SettingFragment extends BaseFragment implements SettingListener {
         } else {
             mIvPoint.setVisibility(View.GONE);
         }
+
         return root;
     }
 
@@ -122,4 +123,5 @@ public class SettingFragment extends BaseFragment implements SettingListener {
             mIvPoint.setVisibility(View.GONE);
         }
     }
+
 }

@@ -14,4 +14,6 @@ public interface StrUtil {
 
     String registerDetails = "正在注册中";
 
+    String shareDesc = "悦河工\n" + "河工大全方位校园学习生活应用\n";
+
 }

@@ -1,6 +1,7 @@
 package com.myhebut.tab;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.view.View;
@@ -35,7 +36,13 @@ import com.myhebut.setting.SettingFeedbackActivity;
 import com.myhebut.utils.HttpUtil;
 import com.myhebut.utils.MyConstants;
 import com.myhebut.utils.SpUtil;
+import com.myhebut.utils.StrUtil;
 import com.myhebut.utils.UrlUtil;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -76,8 +83,8 @@ public class HomeFragment extends BaseFragment {
     private TextView mTvXiala;
     @ViewInject(R.id.tv_home_kuaidi)
     private TextView mTvKuaidi;
-//    @ViewInject(R.id.tv_home_more)
-//    private TextView mTvMore;
+    //    @ViewInject(R.id.tv_home_more)
+    //    private TextView mTvMore;
     @ViewInject(R.id.tv_home_cet)
     private TextView mTvCet;
     @ViewInject(R.id.tv_home_history)
@@ -86,6 +93,10 @@ public class HomeFragment extends BaseFragment {
     private TextView mTvGuide;
     @ViewInject(R.id.tv_home_motto)
     private TextView mTvMotto;
+    @ViewInject(R.id.tv_home_share)
+    private TextView mTvShare;
+
+    private UMImage image;
 
     @OnClick(R.id.rl_home_more)
     private void scroll2bottom(View view) {
@@ -219,18 +230,84 @@ public class HomeFragment extends BaseFragment {
         mainActivity.startActivity(intent);
     }
 
-    @OnClick(R.id.tv_home_feedback)
+    @OnClick(R.id.tv_home_feedback_icon)
     private void feedback1(View view) {
         Intent intent = new Intent(mainActivity, SettingFeedbackActivity.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.tv_home_feedback_icon)
+    @OnClick(R.id.tv_home_feedback)
     private void feedback2(View view) {
         Intent intent = new Intent(mainActivity, SettingFeedbackActivity.class);
         startActivity(intent);
     }
 
+    @OnClick(R.id.tv_home_share)
+    private void share(View view) {
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            }
+        });
+    }
+
+    @OnClick(R.id.ll_share_wechat)
+    private void wechat(View view) {
+        new ShareAction(mainActivity)
+                .setPlatform(SHARE_MEDIA.WEIXIN)
+                .setCallback(umShareListener)
+                .withText(StrUtil.shareDesc)
+                .withTargetUrl(UrlUtil.getAppUrl())
+                .withMedia(image)
+                .share();
+    }
+
+    @OnClick(R.id.ll_share_friend)
+    private void friend(View view) {
+        new ShareAction(mainActivity)
+                .setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE)
+                .setCallback(umShareListener)
+                .withText(StrUtil.shareDesc)
+                .withTargetUrl(UrlUtil.getAppUrl())
+                .withMedia(image)
+                .share();
+    }
+
+    @OnClick(R.id.ll_share_weibo)
+    private void weibo(View view) {
+        new ShareAction(mainActivity)
+                .setPlatform(SHARE_MEDIA.SINA)
+                .setCallback(umShareListener)
+                .withText(StrUtil.shareDesc)
+                .withTargetUrl(UrlUtil.getAppUrl())
+                .withMedia(image)
+                .share();
+    }
+
+    @OnClick(R.id.ll_share_qq)
+    private void qq(View view) {
+        new ShareAction(mainActivity)
+                .setPlatform(SHARE_MEDIA.QQ)
+                .setCallback(umShareListener)
+                .withText(StrUtil.shareDesc)
+                .withTargetUrl(UrlUtil.getAppUrl())
+                .withMedia(image)
+                .share();
+    }
+
+    @OnClick(R.id.ll_share_qzone)
+    private void qzone(View view) {
+        new ShareAction(mainActivity)
+                .setPlatform(SHARE_MEDIA.QZONE)
+                .setCallback(umShareListener)
+                .withText(StrUtil.shareDesc)
+                .withTargetUrl(UrlUtil.getAppUrl())
+                .withMedia(image)
+                .share();
+    }
+
+    private UMShareListener umShareListener;
 
     @Override
     public View initView() {
@@ -241,6 +318,8 @@ public class HomeFragment extends BaseFragment {
         setFonticon();
         // 设置scrollview回弹
         OverScrollDecoratorHelper.setUpOverScroll(mScrollView);
+
+        image = new UMImage(mainActivity, BitmapFactory.decodeResource(getResources(), R.drawable.share_launcher));
 
         return root;
     }
@@ -257,9 +336,10 @@ public class HomeFragment extends BaseFragment {
         iconfont = Typeface.createFromAsset(mainActivity.getAssets(), "home.ttf");
         mTvFeedback.setTypeface(iconfont);
         mTvXiala.setTypeface(iconfont);
+        mTvShare.setTypeface(iconfont);
         iconfont = Typeface.createFromAsset(mainActivity.getAssets(), "more.ttf");
         mTvCard.setTypeface(iconfont);
-//        mTvMore.setTypeface(iconfont);
+        //        mTvMore.setTypeface(iconfont);
         iconfont = Typeface.createFromAsset(mainActivity.getAssets(), "function_add.ttf");
         mTvKuaidi.setTypeface(iconfont);
         mTvCet.setTypeface(iconfont);
@@ -310,6 +390,26 @@ public class HomeFragment extends BaseFragment {
         super.initData();
     }
 
+    @Override
+    public void initEvent() {
+        umShareListener = new UMShareListener() {
+            @Override
+            public void onResult(SHARE_MEDIA platform) {
+                Toast.makeText(mainActivity, platform + " 分享成功啦", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(SHARE_MEDIA platform, Throwable t) {
+                Toast.makeText(mainActivity, platform + " 分享失败啦", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancel(SHARE_MEDIA platform) {
+                Toast.makeText(mainActivity, platform + " 分享取消了", Toast.LENGTH_SHORT).show();
+            }
+        };
+        super.initEvent();
+    }
 
     // 开始自动翻页
     @Override
@@ -328,5 +428,10 @@ public class HomeFragment extends BaseFragment {
         convenientBanner.stopTurning();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(mainActivity).onActivityResult(requestCode, resultCode, data);
+    }
 
 }

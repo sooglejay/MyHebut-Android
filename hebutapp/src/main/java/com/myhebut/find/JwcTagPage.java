@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -161,14 +160,14 @@ public class JwcTagPage extends BaseTagPage {
                     // 只有成功获取数据后才能认为第一次获取成功
                     isFirst = false;
                 } catch(Exception e){
-                    Toast.makeText(mainActivity, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mainActivity, "连接失败,你的网络存在问题,或教务处出了故障", Toast.LENGTH_SHORT).show();
                     mPullRefreshListView.onRefreshComplete();
                 }
             }
 
             @Override
             public void onFailure(HttpException error, String msg) {
-                Toast.makeText(mainActivity, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mainActivity, "连接失败,你的网络存在问题,或教务处出了故障", Toast.LENGTH_SHORT).show();
                 mPullRefreshListView.onRefreshComplete();
             }
         });

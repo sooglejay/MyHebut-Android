@@ -8,6 +8,7 @@ import com.myhebut.entity.Banner;
 import com.myhebut.entity.User;
 import com.myhebut.greendao.DaoMaster;
 import com.myhebut.greendao.DaoSession;
+import com.umeng.socialize.PlatformConfig;
 
 import java.util.List;
 
@@ -57,6 +58,11 @@ public class MyApplication extends Application {
 
     @Override
     public void onCreate() {
+        // 分享配置
+        PlatformConfig.setWeixin("wx967daebe835fbeac", "5bb696d9ccd75a38c8a0bfe0675559b3");
+        PlatformConfig.setSinaWeibo("1219115396", "64ea8b23c7672f5e27384571be1d6874");
+        PlatformConfig.setQQZone("1105503845", "VGLtv7ph9SMT48DA");
+
         super.onCreate();
     }
 
