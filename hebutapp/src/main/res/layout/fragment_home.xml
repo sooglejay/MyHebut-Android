@@ -327,7 +327,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/main_function_icon_margin"
                         android:text="@string/card"
-                        android:textColor="@color/function_blue"
+                        android:textColor="@color/function_green"
                         android:textSize="@dimen/main_function_icon"/>
 
                     <TextView

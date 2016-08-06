@@ -38,14 +38,20 @@
         android:layout_height="1px"
         android:background="@color/color_divider"/>
 
-    <TextView
-        android:id="@+id/tv_notification_content"
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="false"
-        android:padding="20dp"
-        android:textSize="16sp"
-        android:lineSpacingExtra="9dp"
-        android:textColor="@color/font_gray_darker"/>
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:id="@+id/tv_notification_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="9dp"
+            android:padding="20dp"
+            android:singleLine="false"
+            android:textColor="@color/font_gray_darker"
+            android:textSize="16sp"/>
+    </ScrollView>
+
 
 </LinearLayout>

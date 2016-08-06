@@ -263,15 +263,6 @@
             android:process=":pushservice"/>
         <!-- 个推SDK配置结束 -->
 
-        <!-- 配置第三方Receiver -->
-        <receiver
-            android:name="com.myhebut.broadcast.PushReceiver"
-            android:exported="false" >
-            <intent-filter>
-                <!-- 替换为action android:name="com.igexin.sdk.action.第三方应用APPID" -->
-                <action android:name="com.igexin.sdk.action.isvD9cU6KB7ShtDQYl9Zb6" />
-            </intent-filter>
-        </receiver>
         <!-- 友盟SDK配置开始 -->
         <activity
             android:name="com.umeng.socialize.editorpage.ShareActivity"

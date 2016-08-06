@@ -19,7 +19,7 @@ android {
     }
     sourceSets {
         main {
-            java.srcDirs = ['src/main/java', 'src/main/java-gen']
+            java.srcDirs = ['src/main/java']
         }
     }
     compileOptions {
@@ -55,7 +55,6 @@ dependencies {
     compile files('libs/okio-1.6.0.jar')
     compile files('libs/GetuiExt-2.0.3.jar')
     compile files('libs/GetuiSDK2.8.1.0.jar')
-    compile 'de.greenrobot:greendao:2.1.0'
     compile 'se.emilsjolander:stickylistheaders:2.7.0'
     compile 'com.kaopiz:kprogresshud:1.0.5'
     compile project(':social_sdk_library_project')

@@ -84,10 +84,10 @@ public class SettingFragment extends BaseFragment implements SettingListener {
         View root = View.inflate(mainActivity, R.layout.fragment_setting, null);
         ViewUtils.inject(this, root);
         // 消息未读则显示红点
-        if (!SpUtil.getBoolean(mainActivity, MyConstants.ISREAD, true)) {
-            mIvPoint.setVisibility(View.VISIBLE);
-        } else {
+        if (SpUtil.getBoolean(mainActivity, MyConstants.ISREAD, true)) {
             mIvPoint.setVisibility(View.GONE);
+        } else {
+            mIvPoint.setVisibility(View.VISIBLE);
         }
 
         return root;
@@ -118,9 +118,9 @@ public class SettingFragment extends BaseFragment implements SettingListener {
     @Override
     public void setPointVisible(boolean flag) {
         if (flag) {
-            mIvPoint.setVisibility(View.VISIBLE);
-        } else {
             mIvPoint.setVisibility(View.GONE);
+        } else {
+            mIvPoint.setVisibility(View.VISIBLE);
         }
     }
 

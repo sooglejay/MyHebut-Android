@@ -1,2 +1,2 @@
-include ':hebutapp', ':daoexamplegenerator', ':social_sdk_library_project'
+include ':hebutapp', ':social_sdk_library_project'
 include ':PullToRefresh_library'

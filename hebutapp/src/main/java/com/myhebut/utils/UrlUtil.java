@@ -93,6 +93,14 @@ public class UrlUtil {
         return URL + "/banner";
     }
 
+    public static String getNotificationUrl(int userId) {
+        return URL + "/find_notifications?userId=" + userId;
+    }
+
+    public static String getIsReadUrl() {
+        return URL + "/create_user_x_notification";
+    }
+
     public static String getAvatarUrl(String avatar) {
         return "http://cdn.myhebut.com/touxiang%2F" + avatar + ".jpg";
     }
@@ -189,10 +197,6 @@ public class UrlUtil {
 
     public static String getKuaidiUrl(String nu) {
         return "http://m.kuaidi100.com/result.jsp?nu=" + nu;
-    }
-
-    public static String getNotificationUrl() {
-        return URL + "/notification";
     }
 
     public static String getAdvertiseUrl() {

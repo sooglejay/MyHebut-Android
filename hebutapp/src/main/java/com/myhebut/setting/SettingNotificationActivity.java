@@ -3,7 +3,6 @@ package com.myhebut.setting;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,23 +11,32 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.myhebut.activity.R;
 import com.myhebut.activity.WebViewActivity;
 import com.myhebut.application.MyApplication;
-import com.myhebut.greendao.Notification;
-import com.myhebut.greendao.NotificationDao;
+import com.myhebut.entity.Notification;
 import com.myhebut.manager.MainManager;
 import com.myhebut.manager.SettingManager;
+import com.myhebut.utils.HttpUtil;
 import com.myhebut.utils.MyConstants;
 import com.myhebut.utils.SpUtil;
+import com.myhebut.utils.UrlUtil;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.List;
 
-import de.greenrobot.dao.query.Query;
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
@@ -37,9 +45,13 @@ public class SettingNotificationActivity extends SwipeBackActivity {
     @ViewInject(R.id.lv_setting_notification_list)
     private ListView mLvNotification;
 
-    private List<Notification> notifications;
+    List<Notification> notifications;
 
-    private NotificationDao dao;
+    private Gson gson;
+
+    private HttpUtils http;
+
+    private MyApplication application;
 
     private MyAdapter adapter;
 
@@ -66,19 +78,23 @@ public class SettingNotificationActivity extends SwipeBackActivity {
                 if (notification.getIsread() == 0) {
                     // 设为已读状态
                     notification.setIsread(1);
-                    dao.update(notification);
                     adapter.notifyDataSetChanged();
+                    // 更新服务器状态
+                    updateRead(application.getUser().getUserId(), notification.getNotificationId());
+                    // 更新本地数据
+                    SpUtil.setString(getApplicationContext(), MyConstants.NOTIFICATION,
+                            gson.toJson(notifications));
                     // 若不存在未读消息,则主页面的红点隐藏
                     boolean flag = true;
-                    for (int i = 0; i < notifications.size(); i++) {
+                    for (Notification notificationTemp : notifications) {
                         // 如果存在未读消息,flag为false
-                        if (notifications.get(i).getIsread() == 0) {
+                        if (notificationTemp.getIsread() == 0) {
                             flag = false;
                         }
                     }
                     if (flag) {
-                        MainManager.getInstance().sendSetVisible(false);
-                        SettingManager.getInstance().sendSetVisible(false);
+                        MainManager.getInstance().sendSetVisible(true);
+                        SettingManager.getInstance().sendSetVisible(true);
                         SpUtil.setBoolean(SettingNotificationActivity.this, MyConstants.ISREAD, true);
                     }
                 }
@@ -98,15 +114,37 @@ public class SettingNotificationActivity extends SwipeBackActivity {
         });
     }
 
+    private void updateRead(int userId, int notificationId) {
+        RequestParams params = new RequestParams();
+        params.addBodyParameter("userId", String.valueOf(userId));
+        params.addBodyParameter("notificationId", String.valueOf(notificationId));
+        http.send(HttpRequest.HttpMethod.POST, UrlUtil.getIsReadUrl(), params,
+                new RequestCallBack<String>() {
+
+                    @Override
+                    public void onSuccess(ResponseInfo<String> responseInfo) {
+
+                    }
+
+                    @Override
+                    public void onFailure(HttpException error, String msg) {
+                        Toast.makeText(SettingNotificationActivity.this, "网络连接失败,无法更新消息已读状态",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
     private void initData() {
+        gson = new Gson();
+        application = (MyApplication) getApplication();
+        http = HttpUtil.getHttp();
 
         MyApplication application = (MyApplication) getApplication();
-        dao = application.getDaoSession(this).getNotificationDao();
-
-        Query query = dao.queryBuilder().orderDesc(NotificationDao.Properties.Id)
-                .build();
-        notifications = query.list();
-        Log.d("dao",notifications.size() + "");
+        // 读取消息通知
+        String jsonData = SpUtil.getString(getApplicationContext(), MyConstants.NOTIFICATION, null);
+        // 解析数据
+        notifications = gson.fromJson(jsonData, new TypeToken<List<Notification>>() {
+        }.getType());
 
         adapter = new MyAdapter(this, R.layout.item_setting_notification_view, notifications);
         mLvNotification.setAdapter(adapter);
@@ -143,7 +181,6 @@ public class SettingNotificationActivity extends SwipeBackActivity {
             viewHolder.outline.setText(notification.getOutline());
             viewHolder.time.setText(notification.getCreate_time());
             // 未读消息显示红点
-            Log.d("notification", position + ":" + notification.getIsread());
             if (notification.getIsread() == 0) {
                 viewHolder.point.setVisibility(View.VISIBLE);
             } else {

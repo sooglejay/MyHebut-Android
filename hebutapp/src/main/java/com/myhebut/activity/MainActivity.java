@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,11 +30,8 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
 import com.myhebut.application.MyApplication;
-import com.myhebut.greendao.Notification;
-import com.myhebut.greendao.NotificationDao;
 import com.myhebut.listener.MainListener;
 import com.myhebut.manager.MainManager;
-import com.myhebut.manager.SettingManager;
 import com.myhebut.tab.ExamFragment;
 import com.myhebut.tab.FindFragment;
 import com.myhebut.tab.HomeFragment;
@@ -71,8 +67,6 @@ public class MainActivity extends FragmentActivity implements MainListener {
     private ImageView point;
 
     private MyApplication application;
-
-    private NotificationDao dao;
 
     private Gson gson;
 
@@ -212,7 +206,6 @@ public class MainActivity extends FragmentActivity implements MainListener {
 
     private void initData() {
         application = (MyApplication) getApplication();
-        dao = application.getDaoSession(this).getNotificationDao();
         gson = new Gson();
     }
 
@@ -234,10 +227,10 @@ public class MainActivity extends FragmentActivity implements MainListener {
             mTabHost.addTab(tabSpec, fragmentArray[i], null);
         }
         // 消息未读则显示红点
-        if (!SpUtil.getBoolean(this, MyConstants.ISREAD, true)) {
-            point.setVisibility(View.VISIBLE);
-        } else {
+        if (SpUtil.getBoolean(this, MyConstants.ISREAD, true)) {
             point.setVisibility(View.GONE);
+        } else {
+            point.setVisibility(View.VISIBLE);
         }
         // 如果用户设置直接进入考试模块,则自动进行模块跳转
         if (SpUtil.getBoolean(this, MyConstants.ISENTEREXAM, false)) {
@@ -251,7 +244,7 @@ public class MainActivity extends FragmentActivity implements MainListener {
 
         TextView tv = (TextView) view.findViewById(R.id.tab_icon);
         tv.setText(fongIconArray[index]);
-        Typeface iconfont = Typeface.createFromAsset(getAssets(), "iconfont.ttf");
+        Typeface iconfont = Typeface.createFromAsset(getAssets(), "tab.ttf");
         tv.setTypeface(iconfont);
 
         TextView textView = (TextView) view.findViewById(R.id.tab_text);
@@ -282,31 +275,11 @@ public class MainActivity extends FragmentActivity implements MainListener {
     @Override
     public void setPointVisible(boolean flag) {
         if (flag) {
-            point.setVisibility(View.VISIBLE);
-        } else {
             point.setVisibility(View.GONE);
+        } else {
+            point.setVisibility(View.VISIBLE);
         }
     }
-
-    @Override
-    public void addNotification() {
-        if (!SpUtil.getBoolean(this, MyConstants.ISWAITINGFORADD, true)) {
-            try {
-                String data = SpUtil.getString(this, MyConstants.TEMPNOTIFICATION, null);
-                Notification notification = gson.fromJson(data, Notification.class);
-                // 添加到数据库
-                dao.insert(notification);
-                // 消除未添加的flag
-                SpUtil.setBoolean(this, MyConstants.ISWAITINGFORADD, true);
-                // 直接显示红点
-                MainManager.getInstance().sendSetVisible(true);
-                SettingManager.getInstance().sendSetVisible(true);
-            } catch (Exception e) {
-                Log.d("PushReceiver", "json has an error");
-            }
-        }
-    }
-
 
     @Override
     public void onResume() {

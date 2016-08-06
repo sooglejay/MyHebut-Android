@@ -25,10 +25,4 @@ public class MainManager {
         }
     }
 
-    public void sendAddNotification() {
-        if (listener != null){
-            listener.addNotification();
-        }
-    }
-
 }

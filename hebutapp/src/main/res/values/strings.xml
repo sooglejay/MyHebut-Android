@@ -3,10 +3,10 @@
     <string name="action_settings">Settings</string>
     <string name="score_help"><u>绩点,加权平均计算规则?</u></string>
 
-    <string name="home">&#xe676;</string>
-    <string name="find">&#xe634;</string>
-    <string name="exam">&#xe650;</string>
-    <string name="setting">&#xe622;</string>
+    <string name="home">&#xe601;</string>
+    <string name="find">&#xe602;</string>
+    <string name="exam">&#xe600;</string>
+    <string name="setting">&#xe603;</string>
 
     <string name="reply">&#xe60f;</string>
 

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
@@ -27,6 +28,7 @@ import com.myhebut.entity.JsonBanner;
 import com.myhebut.entity.JsonCommon;
 import com.myhebut.entity.JsonData;
 import com.myhebut.entity.JsonUser;
+import com.myhebut.entity.Notification;
 import com.myhebut.entity.User;
 import com.myhebut.utils.HttpUtil;
 import com.myhebut.utils.MyConstants;
@@ -35,6 +37,7 @@ import com.myhebut.utils.StrUtil;
 import com.myhebut.utils.UrlUtil;
 import com.umeng.analytics.MobclickAgent;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends Activity {
@@ -345,6 +348,8 @@ public class LoginActivity extends Activity {
                     true);
             SpUtil.setString(getApplicationContext(), MyConstants.USERDATA,
                     jsonData);
+            // 获取消息通知
+            getNotifications();
             // 获取并保存公告信息
             getBanners();
             // 跳转在banner异步获取成功时跳转
@@ -386,7 +391,31 @@ public class LoginActivity extends Activity {
 
             @Override
             public void onFailure(HttpException error, String msg) {
-                Toast.makeText(LoginActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void getNotifications() {
+        http.send(HttpRequest.HttpMethod.GET, UrlUtil.getNotificationUrl(application.getUser().getUserId()), new RequestCallBack<String>() {
+
+            @Override
+            public void onSuccess(ResponseInfo<String> responseInfo) {
+                String jsonData = responseInfo.result;
+                // 保存数据,用于离线访问
+                SpUtil.setString(getApplicationContext(), MyConstants.NOTIFICATION,
+                        jsonData);
+                // 解析数据
+                List<Notification> notifications = gson.fromJson(jsonData, new TypeToken<List<Notification>>() {  }.getType());
+                for (Notification notification : notifications){
+                    if (notification.getIsread() == 0){
+                        SpUtil.setBoolean(getApplicationContext(), MyConstants.ISREAD,
+                                false);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(HttpException error, String msg) {
             }
         });
     }

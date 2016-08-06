@@ -7,9 +7,9 @@ import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.RequestParams;
@@ -19,12 +19,15 @@ import com.lidroid.xutils.http.client.HttpRequest;
 import com.myhebut.application.MyApplication;
 import com.myhebut.entity.JsonBanner;
 import com.myhebut.entity.JsonUser;
+import com.myhebut.entity.Notification;
 import com.myhebut.entity.User;
 import com.myhebut.utils.HttpUtil;
 import com.myhebut.utils.MyConstants;
 import com.myhebut.utils.SpUtil;
 import com.myhebut.utils.UrlUtil;
 import com.umeng.analytics.MobclickAgent;
+
+import java.util.List;
 
 public class SplashActivity extends Activity {
 
@@ -83,7 +86,6 @@ public class SplashActivity extends Activity {
                     user = jsonUser.getData();
 
                     check(user.getUserName(), user.getUserPass());
-
                 } else {
                     Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
@@ -96,7 +98,6 @@ public class SplashActivity extends Activity {
     }
 
     private void check(String userName, String userPass) {
-
         RequestParams params = new RequestParams();
         params.addBodyParameter("userName", userName);
         params.addBodyParameter("userPass", userPass);
@@ -114,9 +115,10 @@ public class SplashActivity extends Activity {
                                 true);
                         User user = jsonUser.getData();
                         application.setUser(user);
-                        // 获取并保存banner
+                        // 获取消息通知
+                        getNotifications();
+                        // 获取并保存公告信息
                         getBanners();
-
                         // 跳转在banner异步获取成功时跳转
                     } else {
                         Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
@@ -161,7 +163,6 @@ public class SplashActivity extends Activity {
                 // 解析数据
                 JsonBanner jsonBanner = gson.fromJson(jsonData, JsonBanner.class);
                 application.setBanners(jsonBanner.getBanners());
-
                 // 保存数据,用于离线访问
                 SpUtil.setString(getApplicationContext(), MyConstants.BANNERDATA,
                         jsonData);
@@ -173,7 +174,33 @@ public class SplashActivity extends Activity {
 
             @Override
             public void onFailure(HttpException error, String msg) {
-                Toast.makeText(SplashActivity.this, "连接失败,请检查网络设置", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    private void getNotifications() {
+        http.send(HttpRequest.HttpMethod.GET, UrlUtil.getNotificationUrl(user.getUserId()), new RequestCallBack<String>() {
+
+            @Override
+            public void onSuccess(ResponseInfo<String> responseInfo) {
+                String jsonData = responseInfo.result;
+                // 保存数据,用于离线访问
+                SpUtil.setString(getApplicationContext(), MyConstants.NOTIFICATION,
+                        jsonData);
+                Log.d("notification", "!" + jsonData);
+                // 解析数据
+                List<Notification> notifications = gson.fromJson(jsonData, new TypeToken<List<Notification>>() {  }.getType());
+                for (Notification notification : notifications){
+                    if (notification.getIsread() == 0){
+                        SpUtil.setBoolean(getApplicationContext(), MyConstants.ISREAD,
+                                false);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(HttpException error, String msg) {
             }
         });
     }

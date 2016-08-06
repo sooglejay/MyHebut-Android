@@ -41,7 +41,7 @@ public class SettingNotificationContentActivity extends SwipeBackActivity {
         String content = intent.getStringExtra("content");
 
         mTvTitle.setText(title);
-        mTvContent.setText(content);
+        mTvContent.setText(content.replaceAll("<br>", "\n"));
     }
 
     public void back(View view) {
